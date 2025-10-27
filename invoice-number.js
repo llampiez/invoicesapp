@@ -1,26 +1,25 @@
-export class InvoiceSpan extends HTMLElement {
+export class InvoiceNumber extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
-    this._mode = 'preview'; // Estado por defecto: preview o edit
+    this._mode = 'preview'; // Default state: preview or edit
   }
 
-  // Definir los atributos que queremos observar
+  // Define the attributes we want to observe
   static get observedAttributes() {
     return [
+      'name',
+      // general attributes
       'color',
       'font-size',
       'font-weight',
       'text-align',
       'font-family',
-      'letter-spacing',
-      'text-transform',
       'margin',
       'padding',
       'background-color',
       'border',
       'border-radius',
-      'text-shadow',
       'line-height',
       'mode',
     ];
@@ -39,7 +38,7 @@ export class InvoiceSpan extends HTMLElement {
     }
   }
 
-  // Getters para los estados
+  // Getters and setters for mode
   get mode() {
     return this._mode;
   }
@@ -52,50 +51,44 @@ export class InvoiceSpan extends HTMLElement {
   }
 
   render() {
-    const color = this.getAttribute('color') || 'black';
+    const name = this.getAttribute('name') || 'Invoice Number:';
+
+    // Container general attributes
+    const color = this.getAttribute('color') || '#333';
     const fontSize = this.getAttribute('font-size') || '1em';
     const fontWeight = this.getAttribute('font-weight') || 'normal';
     const textAlign = this.getAttribute('text-align') || 'left';
     const fontFamily = this.getAttribute('font-family') || 'inherit';
-    const letterSpacing = this.getAttribute('letter-spacing') || 'normal';
-    const textTransform = this.getAttribute('text-transform') || 'none';
     const margin = this.getAttribute('margin') || '0';
-    const padding = this.getAttribute('padding') || '0';
+    const padding = this.getAttribute('padding') || '0px';
     const backgroundColor =
       this.getAttribute('background-color') || 'transparent';
     const border = this.getAttribute('border') || 'none';
     const borderRadius = this.getAttribute('border-radius') || '0';
-    const textShadow = this.getAttribute('text-shadow') || 'none';
-    const lineHeight = this.getAttribute('line-height') || 'normal';
+    const lineHeight = this.getAttribute('line-height') || '1.6';
 
     this.shadowRoot.innerHTML = `
       <style>
-        span {
+        p {
           color: ${color};
           font-size: ${fontSize};
           font-weight: ${fontWeight};
           text-align: ${textAlign};
           font-family: ${fontFamily};
-          letter-spacing: ${letterSpacing};
-          text-transform: ${textTransform};
           margin: ${margin};
           padding: ${padding};
           background-color: ${backgroundColor};
           border: ${border};
           border-radius: ${borderRadius};
-          text-shadow: ${textShadow};
           line-height: ${lineHeight};
-          display: inline-block;
         }
       </style>
-      <span><slot></slot></span>
+      <p>
+        ${name}
+        <slot></slot>
+      </p>
     `;
-
-    // Por los momentos, los estados preview/edit no cambian nada visualmente
-    // pero están disponibles para uso futuro
-    // console.log('Current mode:', this._mode);
   }
 }
 
-// Registrar el web component
-customElements.define('invoice-span', InvoiceSpan);
+customElements.define('invoice-number', InvoiceNumber);

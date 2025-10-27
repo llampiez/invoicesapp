@@ -4,190 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Invoices App - CSS Grid</title>
-    <script type="module" src="./invoice-title.js"></script>
-    <script type="module" src="./invoice-span.js"></script>
-    <script type="module" src="./invoice-table.js"></script>
-    <script type="module" src="./invoice-thead.js"></script>
-    <script type="module" src="./invoice-tbody.js"></script>
-    <script type="module" src="./invoice-tfooter.js"></script>
-    <script type="module" src="./invoice-tr.js"></script>
-    <script type="module" src="./invoice-td.js"></script>
+    <script type="module" src="./main.js"></script>
   </head>
   <body>
-    <!-- Título principal -->
-    <invoice-title
-      color="#2c3e50"
-      font-size="2.5em"
-      text-align="center"
-      margin="20px 0"
-      text-shadow="2px 2px 4px rgba(0,0,0,0.1)"
-      >Tabla Simple con CSS Grid</invoice-title
-    >
-
-    <!-- Implementación básica con el nuevo sistema simplificado -->
-    <invoice-table
-      width="80%"
-      margin="20px auto"
-      font-family="Arial, sans-serif"
-      background-color="#ffffff">
-      <!-- Header -->
-      <invoice-thead background-color="#3498db" color="white">
-        <invoice-tr col-widths="1fr 150px 150px 150px" gap="1px">
-          <invoice-td
-            text-align="left"
-            padding="12px"
-            background-color="#3498db"
-            border="1px solid #2980b9"
-            >Producto</invoice-td
-          >
-          <invoice-td
-            text-align="center"
-            padding="12px"
-            background-color="#3498db"
-            border="1px solid #2980b9"
-            >Cantidad</invoice-td
-          >
-          <invoice-td
-            text-align="right"
-            padding="12px"
-            background-color="#3498db"
-            border="1px solid #2980b9"
-            >Precio Unit.</invoice-td
-          >
-          <invoice-td
-            text-align="right"
-            padding="12px"
-            background-color="#3498db"
-            border="1px solid #2980b9"
-            >Total</invoice-td
-          >
-        </invoice-tr>
-      </invoice-thead>
-
-      <!-- Body -->
-      <invoice-tbody>
-        <!-- Fila 1 -->
-        <invoice-tr col-widths="1fr 150px 150px 150px" gap="1px">
-          <invoice-td
-            text-align="left"
-            padding="10px"
-            border="1px solid #ecf0f1"
-            >Laptop HP</invoice-td
-          >
-          <invoice-td
-            text-align="center"
-            padding="10px"
-            border="1px solid #ecf0f1"
-            >2</invoice-td
-          >
-          <invoice-td
-            text-align="right"
-            padding="10px"
-            border="1px solid #ecf0f1"
-            >$850.00</invoice-td
-          >
-          <invoice-td
-            text-align="right"
-            padding="10px"
-            border="1px solid #ecf0f1"
-            color="#27ae60"
-            font-weight="bold"
-            >$1,700.00</invoice-td
-          >
-        </invoice-tr>
-
-        <!-- Fila 2 -->
-        <invoice-tr
-          col-widths="1fr 150px 150px 150px"
-          gap="1px"
-          background-color="#f8f9fa">
-          <invoice-td
-            text-align="left"
-            padding="10px"
-            border="1px solid #ecf0f1"
-            >Mouse Inalámbrico</invoice-td
-          >
-          <invoice-td
-            text-align="center"
-            padding="10px"
-            border="1px solid #ecf0f1"
-            >5</invoice-td
-          >
-          <invoice-td
-            text-align="right"
-            padding="10px"
-            border="1px solid #ecf0f1"
-            >$25.00</invoice-td
-          >
-          <invoice-td
-            text-align="right"
-            padding="10px"
-            border="1px solid #ecf0f1"
-            color="#27ae60"
-            font-weight="bold"
-            >$125.00</invoice-td
-          >
-        </invoice-tr>
-
-        <!-- Fila 3 -->
-        <invoice-tr col-widths="1fr 150px 150px 150px" gap="1px">
-          <invoice-td
-            text-align="left"
-            padding="10px"
-            border="1px solid #ecf0f1"
-            >Teclado Mecánico</invoice-td
-          >
-          <invoice-td
-            text-align="center"
-            padding="10px"
-            border="1px solid #ecf0f1"
-            >3</invoice-td
-          >
-          <invoice-td
-            text-align="right"
-            padding="10px"
-            border="1px solid #ecf0f1"
-            >$120.00</invoice-td
-          >
-          <invoice-td
-            text-align="right"
-            padding="10px"
-            border="1px solid #ecf0f1"
-            color="#27ae60"
-            font-weight="bold"
-            >$360.00</invoice-td
-          >
-        </invoice-tr>
-      </invoice-tbody>
-
-      <!-- Footer -->
-      <invoice-tfooter background-color="#34495e" color="white">
-        <invoice-tr col-widths="1fr 300px 150px" align-items="center">
-          <invoice-td
-            text-align="left"
-            padding="12px"
-            font-weight="bold"
-            border="2px solid #2c3e50"
-            >Total General</invoice-td
-          >
-          <invoice-td
-            text-align="center"
-            padding="12px"
-            font-weight="bold"
-            border="2px solid #2c3e50"
-            >10 items</invoice-td
-          >
-          <invoice-td
-            text-align="right"
-            padding="12px"
-            font-weight="bold"
-            font-size="1.2em"
-            color="#2ecc71"
-            border="2px solid #2c3e50"
-            >$2,185.00</invoice-td
-          >
-        </invoice-tr>
-      </invoice-tfooter>
-    </invoice-table>
+    <invoice-details title="Details">
+      <dl>
+        <div class="detail-item">
+          <dt>Invoice Number</dt>
+          <dd>5376173449957541-2</dd>
+        </div>
+        <div class="detail-item">
+          <dt>Invoice Date</dt>
+          <dd>4 Sept 2025</dd>
+        </div>
+        <div class="detail-item">
+          <dt>Billing ID</dt>
+          <dd>9929-2411-9406</dd>
+        </div>
+      </dl>
+    </invoice-details>
   </body>
 </html>

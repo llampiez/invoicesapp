@@ -1,13 +1,14 @@
-export class InvoiceTfooter extends HTMLElement {
+export class InvoiceTr extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
-    this._mode = 'preview'; // Estado por defecto: preview o edit
+    this._mode = 'preview'; // Default state: preview or edit
   }
 
-  // Definir los atributos que queremos observar
+  // Define the attributes we want to observe
   static get observedAttributes() {
     return [
+      'col-widths',
       'background-color',
       'color',
       'font-size',
@@ -22,9 +23,11 @@ export class InvoiceTfooter extends HTMLElement {
       'border-color',
       'border-width',
       'border-style',
-      'text-transform',
-      'letter-spacing',
+      'height',
+      'min-height',
+      'max-height',
       'box-shadow',
+      'gap',
       'mode',
     ];
   }
@@ -37,14 +40,14 @@ export class InvoiceTfooter extends HTMLElement {
     if (oldValue !== newValue) {
       if (name === 'mode') {
         this._mode = newValue || 'preview';
-        // mode no afecta el render visual, solo actualiza el estado interno
+        // mode doesn't affect the visual render, only updates the internal state
         return;
       }
       this.render();
     }
   }
 
-  // Getters para los estados
+  // Getters for the states
   get mode() {
     return this._mode;
   }
@@ -57,7 +60,7 @@ export class InvoiceTfooter extends HTMLElement {
   }
 
   render() {
-    // Estilos visuales
+    // General row styles
     const backgroundColor =
       this.getAttribute('background-color') || 'transparent';
     const color = this.getAttribute('color') || 'inherit';
@@ -73,13 +76,22 @@ export class InvoiceTfooter extends HTMLElement {
     const borderColor = this.getAttribute('border-color') || 'currentColor';
     const borderWidth = this.getAttribute('border-width') || 'medium';
     const borderStyle = this.getAttribute('border-style') || 'none';
-    const textTransform = this.getAttribute('text-transform') || 'none';
-    const letterSpacing = this.getAttribute('letter-spacing') || 'normal';
+    const height = this.getAttribute('height') || 'auto';
+    const minHeight = this.getAttribute('min-height') || 'auto';
+    const maxHeight = this.getAttribute('max-height') || 'none';
     const boxShadow = this.getAttribute('box-shadow') || 'none';
+    const gap = this.getAttribute('gap') || '0';
+    const alignItems = this.getAttribute('align-items') || 'normal';
+    const gridTemplateColumns = this.getAttribute('col-widths') || 'subgrid';
 
+    // Always use slot to receive children
     this.shadowRoot.innerHTML = `
       <style>
-        div {
+        .row-container {
+          display: grid;
+          grid-column: 1 / -1;
+          grid-template-columns: ${gridTemplateColumns};
+          gap: ${gap};
           background-color: ${backgroundColor};
           color: ${color};
           font-size: ${fontSize};
@@ -94,15 +106,17 @@ export class InvoiceTfooter extends HTMLElement {
           border-color: ${borderColor};
           border-width: ${borderWidth};
           border-style: ${borderStyle};
-          text-transform: ${textTransform};
-          letter-spacing: ${letterSpacing};
+          height: ${height};
+          min-height: ${minHeight};
+          max-height: ${maxHeight};
           box-shadow: ${boxShadow};
+          align-items: ${alignItems}
         }
       </style>
-      <div><slot></slot></div>
+      <div class="row-container"><slot></slot></div>
     `;
   }
 }
 
-// Registrar el web component
-customElements.define('invoice-tfooter', InvoiceTfooter);
+// Register the web component
+customElements.define('invoice-tr', InvoiceTr);
