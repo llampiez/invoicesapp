@@ -1,6 +1,4 @@
-//TODO Add styles personalization.
-
-export class InvoiceDate extends HTMLElement {
+export class InvoiceSubTitle extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
@@ -8,7 +6,7 @@ export class InvoiceDate extends HTMLElement {
   }
 
   static get observedAttributes() {
-    return ['name', 'date-format', 'date'];
+    return ['sub-title'];
   }
 
   connectedCallback() {
@@ -36,18 +34,14 @@ export class InvoiceDate extends HTMLElement {
   }
 
   render() {
-    const name = this.getAttribute('name');
-    const date = this.getAttribute('date') || new Date();
-    const dateFormat = this.getAttribute('date-format') || 'MMMM D, YYYY';
-
-    const dateFormatted = dayjs(date).format(dateFormat);
+    const subTitle = this.getAttribute('sub-title') || 'Summary';
 
     this.shadowRoot.innerHTML = `
       <style>
       </style>
-      <span>${name ?? ''}${dateFormatted}</span>
+      <h2>${subTitle}</h2>
     `;
   }
 }
 
-customElements.define('invoice-date', InvoiceDate);
+customElements.define('invoice-subtitle', InvoiceSubTitle);

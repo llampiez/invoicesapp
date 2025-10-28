@@ -7,3 +7,5 @@ import './invoice-logo.js';
 import './invoice-details.js';
 import './paid-on.js';
 import './date-paid.js';
+import './invoice-date.js';
+import './invoice-field-group.js';

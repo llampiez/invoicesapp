@@ -1,3 +1,5 @@
+//TODO Add styles personalization.
+
 export class InvoiceNumber extends HTMLElement {
   constructor() {
     super();

@@ -1,3 +1,5 @@
+//TODO Add styles personalization.
+
 export class VATNumber extends HTMLElement {
   constructor() {
     super();
