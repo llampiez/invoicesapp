@@ -2,28 +2,11 @@ export class InvoiceTitle extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
-    this._mode = 'preview'; // Default state: preview or edit
+    this._mode = 'preview';
   }
 
-  // Define the attributes we want to observe
   static get observedAttributes() {
-    return [
-      'color',
-      'font-size',
-      'font-weight',
-      'text-align',
-      'font-family',
-      'letter-spacing',
-      'text-transform',
-      'margin',
-      'padding',
-      'background-color',
-      'border',
-      'border-radius',
-      'text-shadow',
-      'line-height',
-      'mode',
-    ];
+    return ['title', 'mode'];
   }
 
   connectedCallback() {
@@ -39,7 +22,6 @@ export class InvoiceTitle extends HTMLElement {
     }
   }
 
-  // Getters for the states
   get mode() {
     return this._mode;
   }
@@ -52,49 +34,16 @@ export class InvoiceTitle extends HTMLElement {
   }
 
   render() {
-    const color = this.getAttribute('color') || 'black';
-    const fontSize = this.getAttribute('font-size') || '2em';
-    const fontWeight = this.getAttribute('font-weight') || 'bold';
-    const textAlign = this.getAttribute('text-align') || 'left';
-    const fontFamily = this.getAttribute('font-family') || 'inherit';
-    const letterSpacing = this.getAttribute('letter-spacing') || 'normal';
-    const textTransform = this.getAttribute('text-transform') || 'none';
-    const margin = this.getAttribute('margin') || '0';
-    const padding = this.getAttribute('padding') || '0';
-    const backgroundColor =
-      this.getAttribute('background-color') || 'transparent';
-    const border = this.getAttribute('border') || 'none';
-    const borderRadius = this.getAttribute('border-radius') || '0';
-    const textShadow = this.getAttribute('text-shadow') || 'none';
-    const lineHeight = this.getAttribute('line-height') || 'normal';
+    const title = this.getAttribute('title') ?? 'Invoice';
 
     this.shadowRoot.innerHTML = `
       <style>
         h1 {
-          color: ${color};
-          font-size: ${fontSize};
-          font-weight: ${fontWeight};
-          text-align: ${textAlign};
-          font-family: ${fontFamily};
-          letter-spacing: ${letterSpacing};
-          text-transform: ${textTransform};
-          margin: ${margin};
-          padding: ${padding};
-          background-color: ${backgroundColor};
-          border: ${border};
-          border-radius: ${borderRadius};
-          text-shadow: ${textShadow};
-          line-height: ${lineHeight};
         }
       </style>
-      <h1><slot></slot></h1>
+      <h1>${title}</h1>
     `;
-
-    // For now, the preview/edit states don't change anything visually
-    // but they are available for future use
-    // console.log('Current mode:', this._mode);
   }
 }
 
-// Register the web component
 customElements.define('invoice-title', InvoiceTitle);
