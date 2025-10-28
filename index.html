@@ -3,28 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Invoices App - CSS Grid</title>
+    <title>Invoices App</title>
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
     <script type="module" src="./main.js"></script>
   </head>
   <body>
-    <invoice-field-group id="payment-summary" title="Payment Summary">
-    </invoice-field-group>
-
-    <script type="module">
-      // Wait for the component to be defined
-      customElements.whenDefined('invoice-field-group').then(() => {
-        const fieldGroup = document.getElementById('payment-summary');
-        fieldGroup.data = [
-          { label: 'Subtotal', value: '$1,000.00' },
-          { label: 'VAT 20%', value: '$200.00' },
-          { label: 'Total', value: '$1,200.00' },
-          { label: 'Amount Paid', value: '$500.00' },
-          { label: 'Payment Received', value: '01/15/2024' },
-          { label: 'Credit Card', value: '**** **** **** 1234' },
-          { label: 'Amount Now Due', value: '$700.00' },
-        ];
-      });
-    </script>
+    <invoice-title title="Receipt"></invoice-title>
   </body>
 </html>

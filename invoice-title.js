@@ -6,7 +6,7 @@ export class InvoiceTitle extends HTMLElement {
   }
 
   static get observedAttributes() {
-    return ['title'];
+    return ['title', 'mode'];
   }
 
   connectedCallback() {
@@ -34,10 +34,12 @@ export class InvoiceTitle extends HTMLElement {
   }
 
   render() {
-    const title = this.getAttribute('title') || 'Invoice';
+    const title = this.getAttribute('title') ?? 'Invoice';
 
     this.shadowRoot.innerHTML = `
       <style>
+        h1 {
+        }
       </style>
       <h1>${title}</h1>
     `;

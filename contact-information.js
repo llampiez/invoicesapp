@@ -2,10 +2,9 @@ export class ContactInformation extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
-    this._mode = 'preview'; // Default state: preview or edit
+    this._mode = 'preview';
   }
 
-  // Define the attributes we want to observe
   static get observedAttributes() {
     return [
       'title',

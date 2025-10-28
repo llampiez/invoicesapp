@@ -8,7 +8,7 @@ export class VATNumber extends HTMLElement {
   }
 
   static get observedAttributes() {
-    return ['name'];
+    return ['name', 'vat-number'];
   }
 
   connectedCallback() {
@@ -36,13 +36,13 @@ export class VATNumber extends HTMLElement {
   }
 
   render() {
-    const name = this.getAttribute('name');
-    const vat = this.getAttribute('vat');
+    const name = this.getAttribute('name') ?? 'VAT Number:';
+    const vatNumber = this.getAttribute('vat-number') ?? '';
 
     this.shadowRoot.innerHTML = `
       <style>
       </style>
-      <span>${name ?? ''}${vat}</span>
+      <span>${name} ${vatNumber}</span>
     `;
   }
 }

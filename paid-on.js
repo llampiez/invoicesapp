@@ -1,24 +1,25 @@
-//TODO Add styles personalization.
+//TODO Implementar estilos.
 
-export class InvoiceNumber extends HTMLElement {
+export class PaidOn extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
     this._mode = 'preview';
   }
 
-  static get observedAttributes() {
-    return ['number', 'mode'];
-  }
-
   connectedCallback() {
     this.render();
+  }
+
+  static get observedAttributes() {
+    return ['amount', 'date-value', 'date-format'];
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
     if (oldValue !== newValue) {
       if (name === 'mode') {
         this._mode = newValue || 'preview';
+        return;
       }
       this.render();
     }
@@ -36,17 +37,18 @@ export class InvoiceNumber extends HTMLElement {
   }
 
   render() {
-    const number = this.getAttribute('number') ?? '';
+    const amount = this.getAttribute('amount') ?? '0.00$';
+    const dateValue = this.getAttribute('date-value') ?? new Date();
+    const dateFormat = this.getAttribute('date-format') ?? 'MMMM D, YYYY';
+
+    const formatedDate = dayjs(dateValue).format(dateFormat);
 
     this.shadowRoot.innerHTML = `
       <style>
       </style>
-      <p>
-        <span>Invoice Number</span>
-        <span>${number}</span>
-      </p>
+      <p>${amount} Paid on ${formatedDate}</p>
     `;
   }
 }
 
-customElements.define('invoice-number', InvoiceNumber);
+customElements.define('paid-on', PaidOn);
