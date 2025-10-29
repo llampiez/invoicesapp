@@ -1,4 +1,4 @@
-export class BaseRowCell extends HTMLElement {
+export class TableCell extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });

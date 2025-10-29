@@ -1,6 +1,6 @@
-import { BaseRowCell } from './base-row-cell.js';
+import { TableCell } from '../base-components/table-cell.js';
 
-export class RowAmount extends BaseRowCell {
+export class TableRowAmount extends TableCell {
   static getContentAttributes() {
     return ['amount', 'currency', 'currency-position'];
   }
@@ -18,4 +18,4 @@ export class RowAmount extends BaseRowCell {
   }
 }
 
-customElements.define('row-amount', RowAmount);
+customElements.define('table-row-amount', TableRowAmount);

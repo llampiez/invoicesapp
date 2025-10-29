@@ -1,4 +1,4 @@
-export class InvoiceLogo extends HTMLElement {
+export class OrganizationLogo extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
@@ -10,14 +10,7 @@ export class InvoiceLogo extends HTMLElement {
   }
 
   static get observedAttributes() {
-    return [
-      'logo-src',
-      'logo-alt',
-      'max-width',
-      'max-height',
-      'object-fit',
-      'mode',
-    ];
+    return ['logo-src', 'logo-alt', 'max-width', 'max-height', 'mode'];
   }
 
   connectedCallback() {
@@ -81,7 +74,7 @@ export class InvoiceLogo extends HTMLElement {
   }
 
   _updateImageDimensions() {
-    const img = this.shadowRoot.querySelector('.invoice-logo');
+    const img = this.shadowRoot.querySelector('.organization-logo');
     if (img && this._calculatedWidth && this._calculatedHeight) {
       img.style.width = `${this._calculatedWidth}px`;
       img.style.height = `${this._calculatedHeight}px`;
@@ -92,23 +85,20 @@ export class InvoiceLogo extends HTMLElement {
     const logoSrc = this.getAttribute('logo-src') ?? '';
     const logoAlt =
       this.getAttribute('logo-alt') ??
-      'Image associated with the logo of the organization issuing this invoice.';
-
-    const objectFit = this.getAttribute('object-fit') || 'contain';
+      'Image associated with the logo of the organization.';
 
     this.shadowRoot.innerHTML = `
       <style>
-        .invoice-logo {
+        .organization-logo {
           display: block;
           width: auto;
           height: auto;
-          object-fit: ${objectFit};
         }
       </style>
-      <img class="invoice-logo" src="${logoSrc}" alt="${logoAlt}" />
+      <img class="organization-logo" src="${logoSrc}" alt="${logoAlt}" />
     `;
 
-    const img = this.shadowRoot.querySelector('.invoice-logo');
+    const img = this.shadowRoot.querySelector('.organization-logo');
     if (img) {
       img.addEventListener('load', this._onImageLoad.bind(this));
 
@@ -120,4 +110,4 @@ export class InvoiceLogo extends HTMLElement {
   }
 }
 
-customElements.define('invoice-logo', InvoiceLogo);
+customElements.define('organization-logo', OrganizationLogo);

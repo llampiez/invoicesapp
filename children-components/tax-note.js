@@ -106,7 +106,7 @@ export class TaxNote extends HTMLElement {
           opacity: ${opacity};
         }
       </style>
-      <p class="tax-note">${'Tax to be paid on reverse charge basis.'}</p>
+      <p class="tax-note">$Tax to be paid on reverse charge basis.</p>
     `;
   }
 }

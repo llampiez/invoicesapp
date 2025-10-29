@@ -1,6 +1,6 @@
-import { BaseRowCell } from './base-row-cell.js';
+import { TableCell } from '../base-components/table-cell.js';
 
-export class RowDescription extends BaseRowCell {
+export class TableRowDescription extends TableCell {
   static getContentAttributes() {
     return [
       'description',
@@ -16,14 +16,11 @@ export class RowDescription extends BaseRowCell {
   }
 
   getContentStyles() {
-    const styles = this.getContainerStyles();
-
     const descriptionFontSize =
-      this.getAttribute('description-font-size') ?? styles.fontSize;
+      this.getAttribute('description-font-size') ?? '1rem';
     const descriptionFontWeight =
-      this.getAttribute('description-font-weight') ?? styles.fontWeight;
-    const descriptionColor =
-      this.getAttribute('description-color') ?? styles.color;
+      this.getAttribute('description-font-weight') ?? 'normal';
+    const descriptionColor = this.getAttribute('description-color') ?? 'black';
     const descriptionMarginBottom =
       this.getAttribute('description-margin-bottom') ?? '0';
 
@@ -59,4 +56,4 @@ export class RowDescription extends BaseRowCell {
   }
 }
 
-customElements.define('row-description', RowDescription);
+customElements.define('table-row-description', TableRowDescription);

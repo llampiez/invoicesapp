@@ -1,4 +1,4 @@
-export class DatePaid extends HTMLElement {
+export class CustomerName extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
@@ -12,19 +12,16 @@ export class DatePaid extends HTMLElement {
   static get observedAttributes() {
     return [
       'mode',
-      'date-value',
-      'date-format',
-      'label',
+      'name',
       'font-size',
       'font-weight',
       'font-family',
-      'text-align',
       'padding',
       'margin',
       'background',
       'border',
       'border-radius',
-      'gap',
+      'color',
     ];
   }
 
@@ -50,38 +47,21 @@ export class DatePaid extends HTMLElement {
   }
 
   render() {
-    const dateValue = this.getAttribute('date-value') ?? new Date();
-    const dateFormat = this.getAttribute('date-format') ?? 'MMMM D, YYYY';
-    const label = this.getAttribute('label') ?? 'Date paid';
+    const name = this.getAttribute('name') || 'Customer Name';
 
     const fontSize = this.getAttribute('font-size') || '16px';
     const fontWeight = this.getAttribute('font-weight') || 'normal';
     const fontFamily = this.getAttribute('font-family') || 'inherit';
-    const textAlign = this.getAttribute('text-align') || '';
     const padding = this.getAttribute('padding') || '0';
     const margin = this.getAttribute('margin') || '0';
     const background = this.getAttribute('background') || 'transparent';
     const border = this.getAttribute('border') || 'none';
     const borderRadius = this.getAttribute('border-radius') || '0';
-    const gap = this.getAttribute('gap') || '0px';
-
-    const justifyContent =
-      textAlign === 'left'
-        ? 'flex-start'
-        : textAlign === 'right'
-        ? 'flex-end'
-        : textAlign === 'center'
-        ? 'center'
-        : 'space-between';
-
-    const formatedDate = dayjs(dateValue).format(dateFormat);
+    const color = this.getAttribute('color') || 'inherit';
 
     this.shadowRoot.innerHTML = `
       <style>
-        .date-paid-container {
-          display: flex;
-          justify-content: ${justifyContent};
-          gap: ${gap};
+        span {
           font-size: ${fontSize};
           font-weight: ${fontWeight};
           font-family: ${fontFamily};
@@ -90,14 +70,12 @@ export class DatePaid extends HTMLElement {
           background: ${background};
           border: ${border};
           border-radius: ${borderRadius};
+          color: ${color};
         }
       </style>
-      <div class="date-paid-container">
-        <span>${label}</span>
-        <span>${formatedDate}</span>
-      </div>
+      <span>${name}</span>
     `;
   }
 }
 
-customElements.define('date-paid', DatePaid);
+customElements.define('customer-name', CustomerName);

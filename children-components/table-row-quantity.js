@@ -1,6 +1,6 @@
-import { BaseRowCell } from './base-row-cell.js';
+import { TableCell } from '../base-components/table-cell.js';
 
-export class RowQuantity extends BaseRowCell {
+export class TableRowQuantity extends TableCell {
   static getContentAttributes() {
     return ['quantity'];
   }
@@ -11,4 +11,4 @@ export class RowQuantity extends BaseRowCell {
   }
 }
 
-customElements.define('row-quantity', RowQuantity);
+customElements.define('table-row-quantity', TableRowQuantity);

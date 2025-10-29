@@ -1,6 +1,6 @@
-import { BaseRowCell } from './base-row-cell.js';
+import { TableCell } from '../base-components/table-cell.js';
 
-export class RowUnitPrice extends BaseRowCell {
+export class TableRowUnitPrice extends TableCell {
   static getContentAttributes() {
     return ['price', 'currency', 'currency-position'];
   }
@@ -18,4 +18,4 @@ export class RowUnitPrice extends BaseRowCell {
   }
 }
 
-customElements.define('row-unit-price', RowUnitPrice);
+customElements.define('table-row-unit-price', TableRowUnitPrice);
