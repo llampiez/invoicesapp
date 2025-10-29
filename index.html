@@ -8,6 +8,17 @@
     <script type="module" src="./main.js"></script>
   </head>
   <body>
-    <receipt-title></receipt-title>
+    <amount-paid flex-direction="row" gap="10px" padding="5px">
+      <amount-label
+        slot="amount"
+        value="Amount Paid:"
+        font-size="14px"
+        color="gray"></amount-label>
+      <price-value
+        slot="price"
+        value="1000.00"
+        currency="$"
+        font-weight="bold"></price-value>
+    </amount-paid>
   </body>
 </html>
