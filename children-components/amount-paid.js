@@ -1,109 +1,52 @@
-export class AmountPaid extends HTMLElement {
-  constructor() {
-    super();
-    this.attachShadow({ mode: 'open' });
-    this._mode = 'preview';
-  }
+import { StyledComponent } from '../base-components/styled-component.js';
 
-  connectedCallback() {
-    this.render();
-  }
-
-  static get observedAttributes() {
+export class AmountPaid extends StyledComponent {
+  static getCustomAttributes() {
     return [
-      'mode',
       'amount',
       'label',
-      'font-family',
-      'font-size',
-      'font-weight',
       'label-color',
       'amount-color',
-      'background-color',
-      'border-color',
-      'border-width',
-      'border-radius',
-      'padding',
-      'margin',
-      'justify-content',
       'label-font-size',
       'label-font-weight',
       'amount-font-size',
       'amount-font-weight',
-      'gap',
       'direction',
     ];
-  }
-
-  attributeChangedCallback(name, oldValue, newValue) {
-    if (oldValue !== newValue) {
-      if (name === 'mode') {
-        this._mode = newValue || 'preview';
-        return;
-      }
-      this.render();
-    }
-  }
-
-  get mode() {
-    return this._mode;
-  }
-
-  set mode(value) {
-    if (value === 'preview' || value === 'edit') {
-      this._mode = value;
-      this.setAttribute('mode', value);
-    }
   }
 
   render() {
     const amount = this.getAttribute('amount') ?? '';
     const label = this.getAttribute('label') ?? 'Amount Paid';
 
-    const fontFamily = this.getAttribute('font-family') ?? 'inherit';
-    const fontSize = this.getAttribute('font-size') ?? '16px';
-    const fontWeight = this.getAttribute('font-weight') ?? 'normal';
-
     const labelColor = this.getAttribute('label-color') ?? 'black';
-    const labelFontSize = this.getAttribute('label-font-size') ?? fontSize;
-    const labelFontWeight =
-      this.getAttribute('label-font-weight') ?? fontWeight;
+    const labelFontSize = this.getAttribute('label-font-size') ?? this.fontSize;
+    const labelFontWeight = this.getAttribute('label-font-weight') ?? this.fontWeight;
 
     const amountColor = this.getAttribute('amount-color') ?? 'black';
-    const amountFontSize = this.getAttribute('amount-font-size') ?? fontSize;
-    const amountFontWeight =
-      this.getAttribute('amount-font-weight') ?? 'normal';
+    const amountFontSize = this.getAttribute('amount-font-size') ?? this.fontSize;
+    const amountFontWeight = this.getAttribute('amount-font-weight') ?? 'normal';
 
-    const backgroundColor =
-      this.getAttribute('background-color') ?? 'transparent';
-    const borderColor = this.getAttribute('border-color') ?? 'transparent';
-    const borderWidth = this.getAttribute('border-width') ?? '0';
-    const borderRadius = this.getAttribute('border-radius') ?? '0';
-    const padding = this.getAttribute('padding') ?? '0px';
-    const margin = this.getAttribute('margin') ?? '0';
-    const justifyContent =
-      this.getAttribute('justify-content') ?? 'space-between';
-    const gap = this.getAttribute('gap') ?? '0px';
     const direction = this.getAttribute('direction') ?? 'row';
 
     this.shadowRoot.innerHTML = `
       <style>
         :host {
           display: block;
-          font-family: ${fontFamily};
-          margin: ${margin};
+          font-family: ${this.fontFamily};
+          margin: ${this.margin};
         }
 
         .container {
           display: flex;
           flex-direction: ${direction};
-          gap: ${gap};
+          gap: ${this.gap};
           align-items: ${direction === 'row' ? 'center' : 'flex-start'};
-          justify-content: ${justifyContent};
-          background-color: ${backgroundColor};
-          border: ${borderWidth} solid ${borderColor};
-          border-radius: ${borderRadius};
-          padding: ${padding};
+          justify-content: ${this.justifyContent};
+          background-color: ${this.backgroundColor};
+          border: ${this.borderWidth} solid ${this.borderColor};
+          border-radius: ${this.borderRadius};
+          padding: ${this.padding};
         }
 
         .label {

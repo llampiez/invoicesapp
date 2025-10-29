@@ -1,20 +1,37 @@
-import { TableCell } from '../base-components/table-cell.js';
+import { StyledComponent } from '../base-components/styled-component.js';
 
-export class TableRowAmount extends TableCell {
-  static getContentAttributes() {
+export class TableRowAmount extends StyledComponent {
+  static getCustomAttributes() {
     return ['amount', 'currency', 'currency-position'];
   }
 
-  renderContent() {
+  render() {
     const amount = this.getAttribute('amount') ?? '';
     const currency = this.getAttribute('currency') ?? '$';
     const currencyPosition = this.getAttribute('currency-position') ?? 'after';
 
-    if (currencyPosition === 'before') {
-      return `<div class="amount">${currency}${amount}</div>`;
-    }
+    const content = currencyPosition === 'before'
+      ? `${currency}${amount}`
+      : `${amount}${currency}`;
 
-    return `<div class="amount">${amount}${currency}</div>`;
+    this.shadowRoot.innerHTML = `
+      <style>
+        .amount {
+          font-family: ${this.fontFamily};
+          font-size: ${this.fontSize};
+          font-weight: ${this.fontWeight};
+          color: ${this.color};
+          background: ${this.background};
+          border: ${this.border};
+          border-radius: ${this.borderRadius};
+          padding: ${this.padding};
+          margin: ${this.margin};
+          text-align: ${this.textAlign};
+          line-height: ${this.lineHeight};
+        }
+      </style>
+      <div class="amount">${content}</div>
+    `;
   }
 }
 

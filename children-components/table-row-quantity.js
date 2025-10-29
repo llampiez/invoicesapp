@@ -1,13 +1,31 @@
-import { TableCell } from '../base-components/table-cell.js';
+import { StyledComponent } from '../base-components/styled-component.js';
 
-export class TableRowQuantity extends TableCell {
-  static getContentAttributes() {
+export class TableRowQuantity extends StyledComponent {
+  static getCustomAttributes() {
     return ['quantity'];
   }
 
-  renderContent() {
+  render() {
     const quantity = this.getAttribute('quantity') ?? '';
-    return `<div class="quantity">${quantity}</div>`;
+
+    this.shadowRoot.innerHTML = `
+      <style>
+        .quantity {
+          font-family: ${this.fontFamily};
+          font-size: ${this.fontSize};
+          font-weight: ${this.fontWeight};
+          color: ${this.color};
+          background: ${this.background};
+          border: ${this.border};
+          border-radius: ${this.borderRadius};
+          padding: ${this.padding};
+          margin: ${this.margin};
+          text-align: ${this.textAlign};
+          line-height: ${this.lineHeight};
+        }
+      </style>
+      <div class="quantity">${quantity}</div>
+    `;
   }
 }
 

@@ -1,14 +1,31 @@
-import { TableCell } from '../base-components/table-cell.js';
+import { StyledComponent } from '../base-components/styled-component.js';
 
-export class TableRowTax extends TableCell {
-  static getContentAttributes() {
+export class TableRowTax extends StyledComponent {
+  static getCustomAttributes() {
     return ['tax'];
   }
 
-  renderContent() {
+  render() {
     const tax = this.getAttribute('tax') ?? '0';
 
-    return `<div class="tax">${tax}%</div>`;
+    this.shadowRoot.innerHTML = `
+      <style>
+        .tax {
+          font-family: ${this.fontFamily};
+          font-size: ${this.fontSize};
+          font-weight: ${this.fontWeight};
+          color: ${this.color};
+          background: ${this.background};
+          border: ${this.border};
+          border-radius: ${this.borderRadius};
+          padding: ${this.padding};
+          margin: ${this.margin};
+          text-align: ${this.textAlign};
+          line-height: ${this.lineHeight};
+        }
+      </style>
+      <div class="tax">${tax}%</div>
+    `;
   }
 }
 

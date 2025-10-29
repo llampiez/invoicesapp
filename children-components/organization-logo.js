@@ -1,40 +1,16 @@
-export class OrganizationLogo extends HTMLElement {
+import { StyledComponent } from '../base-components/styled-component.js';
+
+export class OrganizationLogo extends StyledComponent {
   constructor() {
     super();
-    this.attachShadow({ mode: 'open' });
-    this._mode = 'preview';
     this._calculatedWidth = null;
     this._calculatedHeight = null;
     this._inherentMaxWidth = 250;
     this._inherentMaxHeight = 150;
   }
 
-  static get observedAttributes() {
-    return ['logo-src', 'logo-alt', 'max-width', 'max-height', 'mode'];
-  }
-
-  connectedCallback() {
-    this.render();
-  }
-
-  attributeChangedCallback(name, oldValue, newValue) {
-    if (oldValue !== newValue) {
-      if (name === 'mode') {
-        this._mode = newValue || 'preview';
-      }
-      this.render();
-    }
-  }
-
-  get mode() {
-    return this._mode;
-  }
-
-  set mode(value) {
-    if (value === 'preview' || value === 'edit') {
-      this._mode = value;
-      this.setAttribute('mode', value);
-    }
+  static getCustomAttributes() {
+    return ['logo-src', 'logo-alt', 'max-width', 'max-height'];
   }
 
   _calculateDimensions(naturalWidth, naturalHeight) {

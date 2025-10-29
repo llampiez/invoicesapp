@@ -1,73 +1,7 @@
-export class PaymentHistory extends HTMLElement {
-  constructor() {
-    super();
-    this.attachShadow({ mode: 'open' });
-    this._mode = 'preview';
-  }
+import { StyledComponent } from '../base-components/styled-component.js';
 
-  connectedCallback() {
-    this.render();
-  }
-
-  static get observedAttributes() {
-    return [
-      'mode',
-      'font-family',
-      'font-size',
-      'font-weight',
-      'color',
-      'background-color',
-      'border-color',
-      'border-width',
-      'border-radius',
-      'padding',
-      'margin',
-      'text-align',
-      'text-transform',
-      'letter-spacing',
-      'line-height',
-    ];
-  }
-
-  attributeChangedCallback(name, oldValue, newValue) {
-    if (oldValue !== newValue) {
-      if (name === 'mode') {
-        this._mode = newValue || 'preview';
-        return;
-      }
-      this.render();
-    }
-  }
-
-  get mode() {
-    return this._mode;
-  }
-
-  set mode(value) {
-    if (value === 'preview' || value === 'edit') {
-      this._mode = value;
-      this.setAttribute('mode', value);
-    }
-  }
-
+export class PaymentHistory extends StyledComponent {
   render() {
-    const fontFamily = this.getAttribute('font-family') ?? 'inherit';
-    const fontSize = this.getAttribute('font-size') ?? '16px';
-    const fontWeight = this.getAttribute('font-weight') ?? 'normal';
-    const color = this.getAttribute('color') ?? 'black';
-    const textTransform = this.getAttribute('text-transform') ?? 'none';
-    const letterSpacing = this.getAttribute('letter-spacing') ?? 'normal';
-    const lineHeight = this.getAttribute('line-height') ?? 'normal';
-
-    const backgroundColor =
-      this.getAttribute('background-color') ?? 'transparent';
-    const borderColor = this.getAttribute('border-color') ?? 'transparent';
-    const borderWidth = this.getAttribute('border-width') ?? '0';
-    const borderRadius = this.getAttribute('border-radius') ?? '0';
-    const padding = this.getAttribute('padding') ?? '0px';
-    const margin = this.getAttribute('margin') ?? '0';
-    const textAlign = this.getAttribute('text-align') ?? 'left';
-
     this.shadowRoot.innerHTML = `
       <style>
         :host {
@@ -75,19 +9,19 @@ export class PaymentHistory extends HTMLElement {
         }
 
         .label {
-          color: ${color};
-          font-size: ${fontSize};
-          font-weight: ${fontWeight};
-          text-align: ${textAlign};
-          text-transform: ${textTransform};
-          letter-spacing: ${letterSpacing};
-          line-height: ${lineHeight};
-          margin: ${margin};
-          background-color: ${backgroundColor};
-          border: ${borderWidth} solid ${borderColor};
-          border-radius: ${borderRadius};
-          padding: ${padding};
-          font-family: ${fontFamily};
+          color: ${this.color};
+          font-size: ${this.fontSize};
+          font-weight: ${this.fontWeight};
+          text-align: ${this.textAlign};
+          text-transform: ${this.textTransform};
+          letter-spacing: ${this.letterSpacing};
+          line-height: ${this.lineHeight};
+          margin: ${this.margin};
+          background-color: ${this.backgroundColor};
+          border: ${this.borderWidth} solid ${this.borderColor};
+          border-radius: ${this.borderRadius};
+          padding: ${this.padding};
+          font-family: ${this.fontFamily};
         }
       </style>
       <p class="label">Payment History</p>
