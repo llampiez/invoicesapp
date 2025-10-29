@@ -1,6 +1,6 @@
 import { StyledComponent } from '../base-components/styled-component.js';
 
-export class Price extends StyledComponent {
+export class PriceValue extends StyledComponent {
   static getCustomAttributes() {
     return ['value', 'currency', 'currency-position'];
   }
@@ -17,7 +17,7 @@ export class Price extends StyledComponent {
 
     this.shadowRoot.innerHTML = `
       <style>
-        .price {
+        .price-value {
           font-family: ${this.fontFamily};
           font-size: ${this.fontSize};
           font-weight: ${this.fontWeight};
@@ -25,9 +25,9 @@ export class Price extends StyledComponent {
           text-align: ${this.textAlign};
         }
       </style>
-      <span class="price">${content}</span>
+      <span class="price-value">${content}</span>
     `;
   }
 }
 
-customElements.define('price-value', Price);
+customElements.define('price-value', PriceValue);

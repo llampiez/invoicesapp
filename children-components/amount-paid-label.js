@@ -1,16 +1,16 @@
 import { StyledComponent } from '../base-components/styled-component.js';
 
-export class DateLabel extends StyledComponent {
+export class AmountPaidLabel extends StyledComponent {
   static getCustomAttributes() {
     return ['value'];
   }
 
   render() {
-    const value = this.getAttribute('value') ?? 'Date';
+    const value = this.getAttribute('value') ?? 'Amount paid';
 
     this.shadowRoot.innerHTML = `
       <style>
-        .date-label {
+        .amount-paid-label {
           font-family: ${this.fontFamily};
           font-size: ${this.fontSize};
           font-weight: ${this.fontWeight};
@@ -18,9 +18,9 @@ export class DateLabel extends StyledComponent {
           text-align: ${this.textAlign};
         }
       </style>
-      <span class="date-label">${value}</span>
+      <span class="amount-paid-label">${value}</span>
     `;
   }
 }
 
-customElements.define('date-label', DateLabel);
+customElements.define('amount-paid-label', AmountPaidLabel);

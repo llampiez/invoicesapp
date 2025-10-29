@@ -1,12 +1,14 @@
 import './children-components/receipt-title.js';
 import './children-components/vat-number.js';
-import './children-components/invoice-number.js';
+import './children-components/invoice-number-label.js';
+import './children-components/invoice-number-value.js';
+import './parent-components/invoice-number.js';
 import './children-components/organization-logo.js';
 import './children-components/paid-on.js';
-import './children-components/date-label.js';
+import './children-components/date-paid-label.js';
 import './children-components/date-value.js';
 import './parent-components/date-paid.js';
-import './children-components/amount-label.js';
+import './children-components/amount-paid-label.js';
 import './children-components/price-value.js';
 import './parent-components/amount-paid.js';
 import './children-components/payment-history.js';

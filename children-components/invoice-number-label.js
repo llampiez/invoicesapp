@@ -1,16 +1,16 @@
 import { StyledComponent } from '../base-components/styled-component.js';
 
-export class AmountPaidLabel extends StyledComponent {
+export class InvoiceNumberLabel extends StyledComponent {
   static getCustomAttributes() {
     return ['value'];
   }
 
   render() {
-    const value = this.getAttribute('value') ?? 'Amount paid';
+    const value = this.getAttribute('value') ?? 'Invoice number';
 
     this.shadowRoot.innerHTML = `
       <style>
-        .amount {
+        .invoice-number-label {
           font-family: ${this.fontFamily};
           font-size: ${this.fontSize};
           font-weight: ${this.fontWeight};
@@ -18,9 +18,9 @@ export class AmountPaidLabel extends StyledComponent {
           text-align: ${this.textAlign};
         }
       </style>
-      <span class="amount">${value}</span>
+      <span class="invoice-number-label">${value}</span>
     `;
   }
 }
 
-customElements.define('amount-paid-label', AmountPaidLabel);
+customElements.define('invoice-number-label', InvoiceNumberLabel);

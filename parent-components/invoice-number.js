@@ -1,6 +1,6 @@
 import { StyledComponent } from '../base-components/styled-component.js';
 
-export class DatePaid extends StyledComponent {
+export class InvoiceNumber extends StyledComponent {
   static getCustomAttributes() {
     return [];
   }
@@ -33,11 +33,11 @@ export class DatePaid extends StyledComponent {
         }
       </style>
       <div class="container">
-        <slot name="date-paid-label"></slot>
-        <slot name="date-paid-value"></slot>
+        <slot name="invoice-number-label"></slot>
+        <slot name="invoice-number-value"></slot>
       </div>
     `;
   }
 }
 
-customElements.define('date-paid', DatePaid);
+customElements.define('invoice-number', InvoiceNumber);

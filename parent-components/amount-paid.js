@@ -33,8 +33,8 @@ export class AmountPaid extends StyledComponent {
         }
       </style>
       <div class="container">
-        <slot name="amount"></slot>
-        <slot name="price"></slot>
+        <slot name="amount-paid-label"></slot>
+        <slot name="amount-paid-value"></slot>
       </div>
     `;
   }
