@@ -1,12 +1,12 @@
 import { StyledComponent } from '../base-components/styled-component.js';
 
-export class Amount extends StyledComponent {
+export class AmountPaidLabel extends StyledComponent {
   static getCustomAttributes() {
     return ['value'];
   }
 
   render() {
-    const value = this.getAttribute('value') ?? 'Amount';
+    const value = this.getAttribute('value') ?? 'Amount paid';
 
     this.shadowRoot.innerHTML = `
       <style>
@@ -23,4 +23,4 @@ export class Amount extends StyledComponent {
   }
 }
 
-customElements.define('amount-label', Amount);
+customElements.define('amount-paid-label', AmountPaidLabel);
