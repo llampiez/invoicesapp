@@ -1,12 +1,12 @@
 import { StyledComponent } from '../base-components/styled-component.js';
 
-export class CustomerZip extends StyledComponent {
+export class BillingToCity extends StyledComponent {
   static getCustomAttributes() {
-    return ['zip'];
+    return ['city'];
   }
 
   render() {
-    const zip = this.getAttribute('zip') || 'Customer Zip';
+    const city = this.getAttribute('city') || 'Billing To City';
 
     this.shadowRoot.innerHTML = `
       <style>
@@ -22,9 +22,9 @@ export class CustomerZip extends StyledComponent {
           color: ${this.color};
         }
       </style>
-      <span>${zip}</span>
+      <span>${city}</span>
     `;
   }
 }
 
-customElements.define('customer-zip', CustomerZip);
+customElements.define('billing-to-city', BillingToCity);

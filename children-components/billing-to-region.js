@@ -1,12 +1,12 @@
 import { StyledComponent } from '../base-components/styled-component.js';
 
-export class CustomerCountry extends StyledComponent {
+export class BillingToRegion extends StyledComponent {
   static getCustomAttributes() {
-    return ['country'];
+    return ['region'];
   }
 
   render() {
-    const country = this.getAttribute('country') || 'Customer Country';
+    const region = this.getAttribute('region') || 'Billing To Region';
 
     this.shadowRoot.innerHTML = `
       <style>
@@ -22,9 +22,9 @@ export class CustomerCountry extends StyledComponent {
           color: ${this.color};
         }
       </style>
-      <span>${country}</span>
+      <span>${region}</span>
     `;
   }
 }
 
-customElements.define('customer-country', CustomerCountry);
+customElements.define('billing-to-region', BillingToRegion);
