@@ -1,11 +1,12 @@
-// Main entry point - imports all Web Components
 import './invoice-title.js';
 import './contact-information.js';
 import './vat-number.js';
 import './invoice-number.js';
 import './invoice-logo.js';
-import './invoice-details.js';
 import './paid-on.js';
 import './date-paid.js';
-import './invoice-date.js';
-import './invoice-field-group.js';
+import './amount-paid.js';
+import './payment-history.js';
+import './subtotal-paid.js';
+import './total-paid.js';
+import './tax-note.js';

@@ -8,16 +8,13 @@ export class ContactInformation extends HTMLElement {
   static get observedAttributes() {
     return [
       'title',
-      // Title-specific attributes
       'title-font-weight',
       'title-font-size',
       'title-color',
       'title-margin-bottom',
-      // Content-specific attributes
       'content-font-size',
       'content-color',
       'content-line-height',
-      // Container general attributes
       'color',
       'font-size',
       'font-weight',
@@ -46,7 +43,6 @@ export class ContactInformation extends HTMLElement {
     }
   }
 
-  // Getters and setters for mode
   get mode() {
     return this._mode;
   }
@@ -61,18 +57,15 @@ export class ContactInformation extends HTMLElement {
   render() {
     const title = this.getAttribute('title') || 'Bill To:';
 
-    // Title-specific attributes
     const titleFontWeight = this.getAttribute('title-font-weight') || 'normal';
     const titleFontSize = this.getAttribute('title-font-size') || '1em';
     const titleColor = this.getAttribute('title-color') || 'inherit';
     const titleMarginBottom = this.getAttribute('title-margin-bottom') || '0px';
 
-    // Content-specific attributes
     const contentFontSize = this.getAttribute('content-font-size') || '1em';
     const contentColor = this.getAttribute('content-color') || 'inherit';
     const contentLineHeight = this.getAttribute('content-line-height') || '1.6';
 
-    // Container general attributes
     const color = this.getAttribute('color') || '#333';
     const fontSize = this.getAttribute('font-size') || '1em';
     const fontWeight = this.getAttribute('font-weight') || 'normal';

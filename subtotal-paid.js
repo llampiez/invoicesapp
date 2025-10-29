@@ -1,4 +1,4 @@
-export class AmountPaid extends HTMLElement {
+export class SubtotalPaid extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
@@ -13,7 +13,6 @@ export class AmountPaid extends HTMLElement {
     return [
       'mode',
       'amount',
-      'label',
       'font-family',
       'font-size',
       'font-weight',
@@ -58,7 +57,6 @@ export class AmountPaid extends HTMLElement {
 
   render() {
     const amount = this.getAttribute('amount') ?? '';
-    const label = this.getAttribute('label') ?? 'Amount Paid';
 
     const fontFamily = this.getAttribute('font-family') ?? 'inherit';
     const fontSize = this.getAttribute('font-size') ?? '16px';
@@ -121,11 +119,11 @@ export class AmountPaid extends HTMLElement {
         }
       </style>
       <div class="container">
-        <span class="label">${label}</span>
+        <span class="label">Subtotal</span>
         <span class="amount">${amount}</span>
       </div>
     `;
   }
 }
 
-customElements.define('amount-paid', AmountPaid);
+customElements.define('subtotal-paid', SubtotalPaid);

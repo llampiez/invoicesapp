@@ -1,5 +1,3 @@
-//TODO Add styles personalization.
-
 export class InvoiceNumber extends HTMLElement {
   constructor() {
     super();
@@ -8,7 +6,21 @@ export class InvoiceNumber extends HTMLElement {
   }
 
   static get observedAttributes() {
-    return ['number', 'mode'];
+    return [
+      'number',
+      'label',
+      'mode',
+      'font-size',
+      'font-weight',
+      'font-family',
+      'text-align',
+      'padding',
+      'margin',
+      'background',
+      'border',
+      'border-radius',
+      'gap',
+    ];
   }
 
   connectedCallback() {
@@ -37,14 +49,48 @@ export class InvoiceNumber extends HTMLElement {
 
   render() {
     const number = this.getAttribute('number') ?? '';
+    const label = this.getAttribute('label') ?? 'Invoice number';
+
+    const fontSize = this.getAttribute('font-size') || '16px';
+    const fontWeight = this.getAttribute('font-weight') || 'normal';
+    const fontFamily = this.getAttribute('font-family') || 'inherit';
+    const textAlign = this.getAttribute('text-align') || 'left';
+    const padding = this.getAttribute('padding') || '0';
+    const margin = this.getAttribute('margin') || '0';
+    const background = this.getAttribute('background') || 'transparent';
+    const border = this.getAttribute('border') || 'none';
+    const borderRadius = this.getAttribute('border-radius') || '0';
+    const gap = this.getAttribute('gap') || '0px';
+
+    const justifyContent =
+      textAlign === 'left'
+        ? 'flex-start'
+        : textAlign === 'right'
+        ? 'flex-end'
+        : textAlign === 'center'
+        ? 'center'
+        : 'space-between';
 
     this.shadowRoot.innerHTML = `
       <style>
+        .invoice-number-container {
+          display: flex;
+          justify-content: ${justifyContent};
+          gap: ${gap};
+          font-size: ${fontSize};
+          font-weight: ${fontWeight};
+          font-family: ${fontFamily};
+          padding: ${padding};
+          margin: ${margin};
+          background: ${background};
+          border: ${border};
+          border-radius: ${borderRadius};
+        }
       </style>
-      <p>
-        <span>Invoice Number</span>
+      <div class="invoice-number-container">
+        <span>${label}</span>
         <span>${number}</span>
-      </p>
+      </div>
     `;
   }
 }

@@ -1,5 +1,3 @@
-//TODO Add styles personalization.
-
 export class VATNumber extends HTMLElement {
   constructor() {
     super();
@@ -8,7 +6,21 @@ export class VATNumber extends HTMLElement {
   }
 
   static get observedAttributes() {
-    return ['name', 'vat-number'];
+    return [
+      'label',
+      'vat-number',
+      'mode',
+      'font-size',
+      'font-weight',
+      'font-family',
+      'text-align',
+      'padding',
+      'margin',
+      'background',
+      'border',
+      'border-radius',
+      'gap',
+    ];
   }
 
   connectedCallback() {
@@ -36,13 +48,49 @@ export class VATNumber extends HTMLElement {
   }
 
   render() {
-    const name = this.getAttribute('name') ?? 'VAT Number:';
+    const label = this.getAttribute('label') ?? 'VAT Number';
     const vatNumber = this.getAttribute('vat-number') ?? '';
+
+    const fontSize = this.getAttribute('font-size') || '16px';
+    const fontWeight = this.getAttribute('font-weight') || 'normal';
+    const fontFamily = this.getAttribute('font-family') || 'inherit';
+    const textAlign = this.getAttribute('text-align') || '';
+    const padding = this.getAttribute('padding') || '0';
+    const margin = this.getAttribute('margin') || '0';
+    const background = this.getAttribute('background') || 'transparent';
+    const border = this.getAttribute('border') || 'none';
+    const borderRadius = this.getAttribute('border-radius') || '0';
+    const gap = this.getAttribute('gap') || '0px';
+
+    const justifyContent =
+      textAlign === 'left'
+        ? 'flex-start'
+        : textAlign === 'right'
+        ? 'flex-end'
+        : textAlign === 'center'
+        ? 'center'
+        : 'space-between';
 
     this.shadowRoot.innerHTML = `
       <style>
+        .vat-number-container {
+          display: flex;
+          justify-content: ${justifyContent};
+          gap: ${gap};
+          font-size: ${fontSize};
+          font-weight: ${fontWeight};
+          font-family: ${fontFamily};
+          padding: ${padding};
+          margin: ${margin};
+          background: ${background};
+          border: ${border};
+          border-radius: ${borderRadius};
+        }
       </style>
-      <span>${name} ${vatNumber}</span>
+      <div class="vat-number-container">
+        <span>${label}</span>
+        <span>${vatNumber}</span>
+      </div>
     `;
   }
 }
