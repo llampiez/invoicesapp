@@ -1,10 +1,18 @@
 import { StyledComponent } from '../base-components/styled-component.js';
 
-export class TableHeadTax extends StyledComponent {
+export class TableRowPaymentMethod extends StyledComponent {
+  static getCustomAttributes() {
+    return [
+      'value',
+    ];
+  }
+
   render() {
+    const value = this.getAttribute('value') ?? '';
+
     this.shadowRoot.innerHTML = `
       <style>
-        .th-tax {
+        .tr-payment-method {
           font-family: ${this.fontFamily};
           font-size: ${this.fontSize};
           font-weight: ${this.fontWeight};
@@ -18,9 +26,9 @@ export class TableHeadTax extends StyledComponent {
           line-height: ${this.lineHeight};
         }
       </style>
-      <div class="th-tax">Tax</div>
+      <div class="tr-payment-method">${value}</div>
     `;
   }
 }
 
-customElements.define('th-tax', TableHeadTax);
+customElements.define('tr-payment-method', TableRowPaymentMethod);

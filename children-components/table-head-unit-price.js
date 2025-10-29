@@ -4,7 +4,7 @@ export class TableHeadUnitPrice extends StyledComponent {
   render() {
     this.shadowRoot.innerHTML = `
       <style>
-        .header {
+        .th-unit-price {
           font-family: ${this.fontFamily};
           font-size: ${this.fontSize};
           font-weight: ${this.fontWeight};
@@ -18,9 +18,9 @@ export class TableHeadUnitPrice extends StyledComponent {
           line-height: ${this.lineHeight};
         }
       </style>
-      <div class="header">Unit price</div>
+      <div class="th-unit-price">Unit price</div>
     `;
   }
 }
 
-customElements.define('table-head-unit-price', TableHeadUnitPrice);
+customElements.define('th-unit-price', TableHeadUnitPrice);

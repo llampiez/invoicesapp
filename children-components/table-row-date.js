@@ -1,10 +1,19 @@
 import { StyledComponent } from '../base-components/styled-component.js';
 
-export class TableHeadTax extends StyledComponent {
+export class TableRowDate extends StyledComponent {
+  static getCustomAttributes() {
+    return ['date-value', 'date-format'];
+  }
+
   render() {
+    const dateValue = this.getAttribute('date-value') ?? new Date();
+    const dateFormat = this.getAttribute('date-format') ?? 'MMMM D, YYYY';
+
+    const formattedDate = dayjs(dateValue).format(dateFormat);
+
     this.shadowRoot.innerHTML = `
       <style>
-        .th-tax {
+        .tr-date {
           font-family: ${this.fontFamily};
           font-size: ${this.fontSize};
           font-weight: ${this.fontWeight};
@@ -18,9 +27,9 @@ export class TableHeadTax extends StyledComponent {
           line-height: ${this.lineHeight};
         }
       </style>
-      <div class="th-tax">Tax</div>
+      <div class="tr-date">${formattedDate}</div>
     `;
   }
 }
 
-customElements.define('th-tax', TableHeadTax);
+customElements.define('tr-date', TableRowDate);

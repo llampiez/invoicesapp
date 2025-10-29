@@ -4,7 +4,7 @@ export class TableHeadQuantity extends StyledComponent {
   render() {
     this.shadowRoot.innerHTML = `
       <style>
-        .header {
+        .th-quantity {
           font-family: ${this.fontFamily};
           font-size: ${this.fontSize};
           font-weight: ${this.fontWeight};
@@ -18,9 +18,9 @@ export class TableHeadQuantity extends StyledComponent {
           line-height: ${this.lineHeight};
         }
       </style>
-      <div class="header">Quantity</div>
+      <div class="th-quantity">Quantity</div>
     `;
   }
 }
 
-customElements.define('table-head-quantity', TableHeadQuantity);
+customElements.define('th-quantity', TableHeadQuantity);

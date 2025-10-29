@@ -2,13 +2,19 @@ import { StyledComponent } from '../base-components/styled-component.js';
 
 export class PaidOn extends StyledComponent {
   static getCustomAttributes() {
-    return ['amount', 'date-value', 'date-format'];
+    return ['amount', 'currency', 'currency-position', 'date-value', 'date-format'];
   }
 
   render() {
-    const amount = this.getAttribute('amount') ?? '0.00$';
+    const amount = this.getAttribute('amount') ?? '';
+    const currency = this.getAttribute('currency') ?? '$';
+    const currencyPosition = this.getAttribute('currency-position') ?? 'after';
     const dateValue = this.getAttribute('date-value') ?? new Date();
     const dateFormat = this.getAttribute('date-format') ?? 'MMMM D, YYYY';
+
+    const formattedAmount = currencyPosition === 'before'
+      ? `${currency}${amount}`
+      : `${amount}${currency}`;
 
     const formatedDate = dayjs(dateValue).format(dateFormat);
 
@@ -24,7 +30,7 @@ export class PaidOn extends StyledComponent {
           padding: ${this.padding};
         }
       </style>
-      <p>${amount} Paid on ${formatedDate}</p>
+      <p>${formattedAmount} Paid on ${formatedDate}</p>
     `;
   }
 }

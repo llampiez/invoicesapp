@@ -10,7 +10,7 @@ export class TableRowQuantity extends StyledComponent {
 
     this.shadowRoot.innerHTML = `
       <style>
-        .quantity {
+        .tr-quantity {
           font-family: ${this.fontFamily};
           font-size: ${this.fontSize};
           font-weight: ${this.fontWeight};
@@ -24,9 +24,9 @@ export class TableRowQuantity extends StyledComponent {
           line-height: ${this.lineHeight};
         }
       </style>
-      <div class="quantity">${quantity}</div>
+      <div class="tr-quantity">${quantity}</div>
     `;
   }
 }
 
-customElements.define('table-row-quantity', TableRowQuantity);
+customElements.define('tr-quantity', TableRowQuantity);

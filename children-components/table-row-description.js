@@ -30,7 +30,7 @@ export class TableRowDescription extends StyledComponent {
 
     this.shadowRoot.innerHTML = `
       <style>
-        .container {
+        .tr-description {
           font-family: ${this.fontFamily};
           font-size: ${this.fontSize};
           font-weight: ${this.fontWeight};
@@ -57,7 +57,7 @@ export class TableRowDescription extends StyledComponent {
           color: ${captionColor};
         }
       </style>
-      <div class="container">
+      <div class="tr-description">
         <div class="description">${description}</div>
         ${caption ? `<div class="caption">${caption}</div>` : ''}
       </div>
@@ -65,4 +65,4 @@ export class TableRowDescription extends StyledComponent {
   }
 }
 
-customElements.define('table-row-description', TableRowDescription);
+customElements.define('tr-description', TableRowDescription);

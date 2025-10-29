@@ -10,7 +10,7 @@ export class TableRowTax extends StyledComponent {
 
     this.shadowRoot.innerHTML = `
       <style>
-        .tax {
+        .tr-tax {
           font-family: ${this.fontFamily};
           font-size: ${this.fontSize};
           font-weight: ${this.fontWeight};
@@ -24,9 +24,9 @@ export class TableRowTax extends StyledComponent {
           line-height: ${this.lineHeight};
         }
       </style>
-      <div class="tax">${tax}%</div>
+      <div class="tr-tax">${tax}%</div>
     `;
   }
 }
 
-customElements.define('table-row-tax', TableRowTax);
+customElements.define('tr-tax', TableRowTax);

@@ -16,7 +16,7 @@ export class TableRowAmount extends StyledComponent {
 
     this.shadowRoot.innerHTML = `
       <style>
-        .amount {
+        .tr-amount {
           font-family: ${this.fontFamily};
           font-size: ${this.fontSize};
           font-weight: ${this.fontWeight};
@@ -30,9 +30,9 @@ export class TableRowAmount extends StyledComponent {
           line-height: ${this.lineHeight};
         }
       </style>
-      <div class="amount">${content}</div>
+      <div class="tr-amount">${content}</div>
     `;
   }
 }
 
-customElements.define('table-row-amount', TableRowAmount);
+customElements.define('tr-amount', TableRowAmount);

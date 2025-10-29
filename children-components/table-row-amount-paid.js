@@ -1,10 +1,22 @@
 import { StyledComponent } from '../base-components/styled-component.js';
 
-export class TableHeadTax extends StyledComponent {
+export class TableRowAmountPaid extends StyledComponent {
+  static getCustomAttributes() {
+    return ['amount', 'currency', 'currency-position'];
+  }
+
   render() {
+    const amount = this.getAttribute('amount') ?? '';
+    const currency = this.getAttribute('currency') ?? '$';
+    const currencyPosition = this.getAttribute('currency-position') ?? 'after';
+
+    const content = currencyPosition === 'before'
+      ? `${currency}${amount}`
+      : `${amount}${currency}`;
+
     this.shadowRoot.innerHTML = `
       <style>
-        .th-tax {
+        .tr-amount-paid {
           font-family: ${this.fontFamily};
           font-size: ${this.fontSize};
           font-weight: ${this.fontWeight};
@@ -18,9 +30,9 @@ export class TableHeadTax extends StyledComponent {
           line-height: ${this.lineHeight};
         }
       </style>
-      <div class="th-tax">Tax</div>
+      <div class="tr-amount-paid">${content}</div>
     `;
   }
 }
 
-customElements.define('th-tax', TableHeadTax);
+customElements.define('tr-amount-paid', TableRowAmountPaid);

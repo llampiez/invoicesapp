@@ -1,10 +1,10 @@
 import { StyledComponent } from '../base-components/styled-component.js';
 
-export class TableHeadTax extends StyledComponent {
+export class TableHeadDate extends StyledComponent {
   render() {
     this.shadowRoot.innerHTML = `
       <style>
-        .th-tax {
+        .th-date {
           font-family: ${this.fontFamily};
           font-size: ${this.fontSize};
           font-weight: ${this.fontWeight};
@@ -18,9 +18,9 @@ export class TableHeadTax extends StyledComponent {
           line-height: ${this.lineHeight};
         }
       </style>
-      <div class="th-tax">Tax</div>
+      <div class="th-date">Date</div>
     `;
   }
 }
 
-customElements.define('th-tax', TableHeadTax);
+customElements.define('th-date', TableHeadDate);
