@@ -1,22 +1,25 @@
 import { StyledComponent } from '../base-components/styled-component.js';
 
-export class ReceiptTitle extends StyledComponent {
+export class InvoiceElectronicGenerationNote extends StyledComponent {
   render() {
     this.shadowRoot.innerHTML = `
       <style>
-        h1 {
+        p {
+          color: ${this.color};
           font-size: ${this.fontSize};
           font-weight: ${this.fontWeight};
-          color: ${this.color};
+          font-family: ${this.fontFamily};
           text-align: ${this.textAlign};
           margin: ${this.margin};
           padding: ${this.padding};
-          font-family: ${this.fontFamily};
         }
       </style>
-      <h1>Receipt</h1>
+      <p>This invoice was generated electronically and automatically, without a cash register.</p>
     `;
   }
 }
 
-customElements.define('receipt-title', ReceiptTitle);
+customElements.define(
+  'invoice-electronic-generatio-note',
+  InvoiceElectronicGenerationNote,
+);
