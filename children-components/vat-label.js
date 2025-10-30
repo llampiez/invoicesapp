@@ -1,16 +1,16 @@
 import { StyledComponent } from '../base-components/styled-component.js';
 
-export class SubtotalPaidLabel extends StyledComponent {
+export class VATLabel extends StyledComponent {
   static getCustomAttributes() {
-    return ['value'];
+    return ['label'];
   }
 
   render() {
-    const value = this.getAttribute('value') ?? 'Subtotal';
+    const label = this.getAttribute('label') ?? 'VAT (20%)';
 
     this.shadowRoot.innerHTML = `
       <style>
-        .subtotal-paid-label {
+        .vat-label {
           font-family: ${this.fontFamily};
           font-size: ${this.fontSize};
           font-weight: ${this.fontWeight};
@@ -18,9 +18,9 @@ export class SubtotalPaidLabel extends StyledComponent {
           text-align: ${this.textAlign};
         }
       </style>
-      <span class="subtotal-paid-label">${value}</span>
+      <span class="vat-label">${label}</span>
     `;
   }
 }
 
-customElements.define('subtotal-paid-label', SubtotalPaidLabel);
+customElements.define('vat-label', VATLabel);

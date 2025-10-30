@@ -1,16 +1,16 @@
 import { StyledComponent } from '../base-components/styled-component.js';
 
-export class TotalPaidLabel extends StyledComponent {
+export class SubtotalLabel extends StyledComponent {
   static getCustomAttributes() {
-    return ['value'];
+    return ['label'];
   }
 
   render() {
-    const value = this.getAttribute('value') ?? 'Total';
+    const label = this.getAttribute('label') ?? 'Subtotal';
 
     this.shadowRoot.innerHTML = `
       <style>
-        .total-paid-label {
+        .subtotal-label {
           font-family: ${this.fontFamily};
           font-size: ${this.fontSize};
           font-weight: ${this.fontWeight};
@@ -18,9 +18,9 @@ export class TotalPaidLabel extends StyledComponent {
           text-align: ${this.textAlign};
         }
       </style>
-      <span class="total-paid-label">${value}</span>
+      <span class="subtotal-label">${label}</span>
     `;
   }
 }
 
-customElements.define('total-paid-label', TotalPaidLabel);
+customElements.define('subtotal-label', SubtotalLabel);

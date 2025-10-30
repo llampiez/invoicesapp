@@ -7,7 +7,7 @@ export class PriceValue extends StyledComponent {
 
   render() {
     const value = this.getAttribute('value') ?? '0.00';
-    const currency = this.getAttribute('currency') ?? '$';
+    const currency = this.getAttribute('currency') ?? '';
     const currencyPosition = this.getAttribute('currency-position') ?? 'after';
 
     const content =

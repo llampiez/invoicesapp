@@ -1,7 +1,13 @@
 import { StyledComponent } from '../base-components/styled-component.js';
 
 export class TableHeadDescription extends StyledComponent {
+  static getCustomAttributes() {
+    return ['label'];
+  }
+
   render() {
+    const label = this.getAttribute('label') || 'Description';
+
     this.shadowRoot.innerHTML = `
       <style>
         .th-description {
@@ -18,7 +24,7 @@ export class TableHeadDescription extends StyledComponent {
           line-height: ${this.lineHeight};
         }
       </style>
-      <div class="th-description">Description</div>
+      <div class="th-description">${label}</div>
     `;
   }
 }

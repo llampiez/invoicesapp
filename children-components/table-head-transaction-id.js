@@ -1,15 +1,16 @@
 import { StyledComponent } from '../base-components/styled-component.js';
 
-export class TableHeadAmount extends StyledComponent {
+export class TableHeadTransactionID extends StyledComponent {
   static getCustomAttributes() {
     return ['label'];
   }
+
   render() {
-    const label = this.getAttribute('label') || 'Amount';
+    const label = this.getAttribute('label') || 'Transaction ID';
 
     this.shadowRoot.innerHTML = `
       <style>
-        .th-amount {
+        .th-transaction-id {
           font-family: ${this.fontFamily};
           font-size: ${this.fontSize};
           font-weight: ${this.fontWeight};
@@ -23,9 +24,9 @@ export class TableHeadAmount extends StyledComponent {
           line-height: ${this.lineHeight};
         }
       </style>
-      <div class="th-amount">${label}</div>
+      <div class="th-transaction-id">${label}</div>
     `;
   }
 }
 
-customElements.define('th-amount', TableHeadAmount);
+customElements.define('th-transaction-id', TableHeadTransactionID);

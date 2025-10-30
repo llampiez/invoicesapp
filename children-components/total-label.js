@@ -1,16 +1,16 @@
 import { StyledComponent } from '../base-components/styled-component.js';
 
-export class VATNumberValue extends StyledComponent {
+export class TotalPaidLabel extends StyledComponent {
   static getCustomAttributes() {
-    return ['value'];
+    return ['label'];
   }
 
   render() {
-    const value = this.getAttribute('value') ?? 'VAT number not provided';
+    const label = this.getAttribute('label') ?? 'Total';
 
     this.shadowRoot.innerHTML = `
       <style>
-        .vat-number-value {
+        .total-label {
           font-family: ${this.fontFamily};
           font-size: ${this.fontSize};
           font-weight: ${this.fontWeight};
@@ -18,9 +18,9 @@ export class VATNumberValue extends StyledComponent {
           text-align: ${this.textAlign};
         }
       </style>
-      <span class="vat-number-value">${value}</span>
+      <span class="total-label">${label}</span>
     `;
   }
 }
 
-customElements.define('vat-number-value', VATNumberValue);
+customElements.define('total-label', TotalPaidLabel);
