@@ -1,3 +1,5 @@
+//TODO Check this.
+
 import { StyledComponent } from '../base-components/styled-component.js';
 
 export class TableRowDescription extends StyledComponent {
@@ -19,13 +21,17 @@ export class TableRowDescription extends StyledComponent {
     const description = this.getAttribute('description') ?? '';
     const caption = this.getAttribute('caption') ?? '';
 
-    const descriptionFontSize = this.getAttribute('description-font-size') ?? '1rem';
-    const descriptionFontWeight = this.getAttribute('description-font-weight') ?? 'normal';
+    const descriptionFontSize =
+      this.getAttribute('description-font-size') ?? '1rem';
+    const descriptionFontWeight =
+      this.getAttribute('description-font-weight') ?? 'normal';
     const descriptionColor = this.getAttribute('description-color') ?? 'black';
-    const descriptionMarginBottom = this.getAttribute('description-margin-bottom') ?? '0';
+    const descriptionMarginBottom =
+      this.getAttribute('description-margin-bottom') ?? '0';
 
     const captionFontSize = this.getAttribute('caption-font-size') ?? '0.875em';
-    const captionFontWeight = this.getAttribute('caption-font-weight') ?? 'normal';
+    const captionFontWeight =
+      this.getAttribute('caption-font-weight') ?? 'normal';
     const captionColor = this.getAttribute('caption-color') ?? '#666';
 
     this.shadowRoot.innerHTML = `

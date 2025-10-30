@@ -1,43 +1,41 @@
 import { StyledComponent } from '../base-components/styled-component.js';
 
-export class InvoiceNumber extends StyledComponent {
+export class InvoiceBillingIdBlock extends StyledComponent {
   static getCustomAttributes() {
-    return [];
+    return ['value'];
   }
 
   render() {
+    const value = this.getAttribute('value') ?? '';
+
     this.shadowRoot.innerHTML = `
       <style>
-        :host {
-          display: ${this.display};
-          font-family: ${this.fontFamily};
-          margin: ${this.margin};
-        }
-
         .container {
-          display: flex;
+          display: ${this.display};
           flex-direction: ${this.flexDirection};
           gap: ${this.gap};
           align-items: ${this.alignItems};
           justify-content: ${this.justifyContent};
           background-color: ${this.backgroundColor};
+          padding: ${this.padding};
+          margin: ${this.margin};
           border: ${this.borderWidth} solid ${this.borderColor};
           border-radius: ${this.borderRadius};
-          padding: ${this.padding};
           width: ${this.width};
           height: ${this.height};
-        }
-
-        ::slotted(*) {
-          margin: 0;
+          color: ${this.color};
+          font-size: ${this.fontSize};
+          font-weight: ${this.fontWeight};
+          font-family: ${this.fontFamily};
+          text-align: ${this.textAlign};
         }
       </style>
       <div class="container">
-        <slot name="invoice-number-label"></slot>
-        <slot name="invoice-number-value"></slot>
+        <div>Billing ID</div>
+        <div>${value}</div>
       </div>
     `;
   }
 }
 
-customElements.define('invoice-number', InvoiceNumber);
+customElements.define('invoice-billing-id-block', InvoiceBillingIdBlock);

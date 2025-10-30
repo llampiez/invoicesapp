@@ -1,13 +1,7 @@
 import { StyledComponent } from '../base-components/styled-component.js';
 
 export class OfficialReceipt extends StyledComponent {
-  static getCustomAttributes() {
-    return ['value'];
-  }
-
   render() {
-    const value = this.getAttribute('value') ?? 'OFFICIAL RECEIPT';
-
     this.shadowRoot.innerHTML = `
       <style>
         span {
@@ -20,7 +14,7 @@ export class OfficialReceipt extends StyledComponent {
           padding: ${this.padding};
         }
       </style>
-      <span>${value}</span>
+      <span>OFFICIAL RECEIPT</span>
     `;
   }
 }

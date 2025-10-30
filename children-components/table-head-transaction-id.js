@@ -1,13 +1,7 @@
 import { StyledComponent } from '../base-components/styled-component.js';
 
 export class TableHeadTransactionID extends StyledComponent {
-  static getCustomAttributes() {
-    return ['label'];
-  }
-
   render() {
-    const label = this.getAttribute('label') || 'Transaction ID';
-
     this.shadowRoot.innerHTML = `
       <style>
         .th-transaction-id {
@@ -24,7 +18,7 @@ export class TableHeadTransactionID extends StyledComponent {
           line-height: ${this.lineHeight};
         }
       </style>
-      <div class="th-transaction-id">${label}</div>
+      <div class="th-transaction-id">Transaction ID</div>
     `;
   }
 }

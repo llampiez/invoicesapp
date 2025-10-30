@@ -6,7 +6,7 @@ export class TableRowTransactionID extends StyledComponent {
   }
 
   render() {
-    const value = this.getAttribute('value') ?? '0';
+    const value = this.getAttribute('value') ?? '';
 
     this.shadowRoot.innerHTML = `
       <style>

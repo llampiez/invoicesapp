@@ -1,13 +1,7 @@
 import { StyledComponent } from '../base-components/styled-component.js';
 
 export class TableHeadUnitPrice extends StyledComponent {
-  static getCustomAttributes() {
-    return ['label'];
-  }
-
   render() {
-    const label = this.getAttribute('label') || 'Unit price';
-
     this.shadowRoot.innerHTML = `
       <style>
         .th-unit-price {
@@ -24,7 +18,7 @@ export class TableHeadUnitPrice extends StyledComponent {
           line-height: ${this.lineHeight};
         }
       </style>
-      <div class="th-unit-price">${label}</div>
+      <div class="th-unit-price">Unit price</div>
     `;
   }
 }

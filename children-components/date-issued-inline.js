@@ -1,12 +1,12 @@
 import { StyledComponent } from '../base-components/styled-component';
 
-export class DateIssued extends StyledComponent {
+export class DateIssuedInline extends StyledComponent {
   static getCustomAttributes() {
     return ['label', 'date-value', 'date-format'];
   }
 
   render() {
-    const label = this.getAttribute('label') ?? 'Date Issued:';
+    const label = this.getAttribute('label') ?? 'Date Issued: ';
     const dateValue = this.getAttribute('date-value') ?? new Date();
     const dateFormat = this.getAttribute('date-format') ?? 'MMM DD, YYYY';
 
@@ -24,9 +24,9 @@ export class DateIssued extends StyledComponent {
           padding: ${this.padding};
         }
       </style>
-      <span>${label} ${dateFormatted}</span>
+      <span>${label}${dateFormatted}</span>
     `;
   }
 }
 
-customElements.define('date-issued', DateIssued);
+customElements.define('date-issued-inline', DateIssuedInline);

@@ -1,12 +1,16 @@
 import { StyledComponent } from '../base-components/styled-component.js';
 
-export class CCNumberLabel extends StyledComponent {
+export class DatePaidInline extends StyledComponent {
   static getCustomAttributes() {
-    return ['value'];
+    return ['label', 'date-value', 'date-format'];
   }
 
   render() {
-    const value = this.getAttribute('value') ?? 'Credit Card Number:';
+    const label = this.getAttribute('label') ?? 'Date Paid:';
+    const dateValue = this.getAttribute('date-value') ?? new Date();
+    const dateFormat = this.getAttribute('date-format') ?? 'MMMM D, YYYY';
+
+    const formatedDate = dayjs(dateValue).format(dateFormat);
 
     this.shadowRoot.innerHTML = `
       <style>
@@ -20,9 +24,9 @@ export class CCNumberLabel extends StyledComponent {
           padding: ${this.padding};
         }
       </style>
-      <span>${value}</span>
+      <span>${label} ${formatedDate}</span>
     `;
   }
 }
 
-customElements.define('cc-number-label', CCNumberLabel);
+customElements.define('date-paid-inline', DatePaidInline);

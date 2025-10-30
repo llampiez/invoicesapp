@@ -1,12 +1,12 @@
 import { StyledComponent } from '../base-components/styled-component.js';
 
-export class BillToLabel extends StyledComponent {
+export class TextInline extends StyledComponent {
   static getCustomAttributes() {
-    return ['value'];
+    return ['text'];
   }
 
   render() {
-    const value = this.getAttribute('value') || 'Bill to';
+    const text = this.getAttribute('text') ?? '';
 
     this.shadowRoot.innerHTML = `
       <style>
@@ -22,9 +22,9 @@ export class BillToLabel extends StyledComponent {
           color: ${this.color};
         }
       </style>
-      <span>${value}</span>
+      <span>${text}</span>
     `;
   }
 }
 
-customElements.define('bill-to-label', BillToLabel);
+customElements.define('text-inline', TextInline);

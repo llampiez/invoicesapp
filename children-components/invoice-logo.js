@@ -1,8 +1,6 @@
-//TODO Check this component.
-
 import { StyledComponent } from '../base-components/styled-component.js';
 
-export class OrganizationLogo extends StyledComponent {
+export class InvoiceLogo extends StyledComponent {
   constructor() {
     super();
     this._calculatedWidth = null;
@@ -52,7 +50,7 @@ export class OrganizationLogo extends StyledComponent {
   }
 
   _updateImageDimensions() {
-    const img = this.shadowRoot.querySelector('.organization-logo');
+    const img = this.shadowRoot.querySelector('.invoice-logo');
     if (img && this._calculatedWidth && this._calculatedHeight) {
       img.style.width = `${this._calculatedWidth}px`;
       img.style.height = `${this._calculatedHeight}px`;
@@ -63,20 +61,20 @@ export class OrganizationLogo extends StyledComponent {
     const logoSrc = this.getAttribute('logo-src') ?? '';
     const logoAlt =
       this.getAttribute('logo-alt') ??
-      'Image associated with the logo of the organization.';
+      'Image associated with the logo of the invoice.';
 
     this.shadowRoot.innerHTML = `
       <style>
-        .organization-logo {
+        .invoice-logo {
           display: block;
           width: auto;
           height: auto;
         }
       </style>
-      <img class="organization-logo" src="${logoSrc}" alt="${logoAlt}" />
+      <img class="invoice-logo" src="${logoSrc}" alt="${logoAlt}" />
     `;
 
-    const img = this.shadowRoot.querySelector('.organization-logo');
+    const img = this.shadowRoot.querySelector('.invoice-logo');
     if (img) {
       img.addEventListener('load', this._onImageLoad.bind(this));
 
@@ -88,4 +86,4 @@ export class OrganizationLogo extends StyledComponent {
   }
 }
 
-customElements.define('organization-logo', OrganizationLogo);
+customElements.define('invoice-logo', InvoiceLogo);

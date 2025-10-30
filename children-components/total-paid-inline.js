@@ -1,12 +1,17 @@
 import { StyledComponent } from '../base-components/styled-component.js';
 
-export class PaymentReceivedLabel extends StyledComponent {
+export class TotalPaidInline extends StyledComponent {
   static getCustomAttributes() {
-    return ['value'];
+    return ['label', 'value', 'currency'];
   }
 
   render() {
-    const value = this.getAttribute('value') ?? 'Payment Received:';
+    const label = this.getAttribute('label') ?? 'Total Paid: ';
+
+    const value = this.getAttribute('value') ?? '0.00';
+    const currency = this.getAttribute('currency') ?? 'USD';
+
+    const content = `${currency} ${value}`;
 
     this.shadowRoot.innerHTML = `
       <style>
@@ -20,9 +25,9 @@ export class PaymentReceivedLabel extends StyledComponent {
           padding: ${this.padding};
         }
       </style>
-      <span>${value}</span>
+      <span>${label}${content}</span>
     `;
   }
 }
 
-customElements.define('payment-received-label', PaymentReceivedLabel);
+customElements.define('date-paid-inline', TotalPaidInline);

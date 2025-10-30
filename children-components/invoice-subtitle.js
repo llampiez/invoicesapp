@@ -1,28 +1,28 @@
 import { StyledComponent } from '../base-components/styled-component.js';
 
-export class CHNameLabel extends StyledComponent {
+export class InvoiceSubtitle extends StyledComponent {
   static getCustomAttributes() {
-    return ['value'];
+    return ['label'];
   }
 
   render() {
-    const value = this.getAttribute('value') ?? "Cardholder's Name:";
+    const label = this.getAttribute('label') ?? '';
 
     this.shadowRoot.innerHTML = `
       <style>
-        span {
-          color: ${this.color};
+        h2 {
           font-size: ${this.fontSize};
           font-weight: ${this.fontWeight};
-          font-family: ${this.fontFamily};
+          color: ${this.color};
           text-align: ${this.textAlign};
           margin: ${this.margin};
           padding: ${this.padding};
+          font-family: ${this.fontFamily};
         }
       </style>
-      <span>${value}</span>
+      <h2>${label}</h2>
     `;
   }
 }
 
-customElements.define('ch-name-label', CHNameLabel);
+customElements.define('invoice-subtitle', InvoiceSubtitle);
