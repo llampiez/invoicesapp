@@ -1,12 +1,12 @@
 import { StyledComponent } from '../base-components/styled-component.js';
 
-export class BillingToLabel extends StyledComponent {
+export class BillToStreet extends StyledComponent {
   static getCustomAttributes() {
     return ['value'];
   }
 
   render() {
-    const value = this.getAttribute('value') || 'Bill to';
+    const value = this.getAttribute('value') || '';
 
     this.shadowRoot.innerHTML = `
       <style>
@@ -27,4 +27,4 @@ export class BillingToLabel extends StyledComponent {
   }
 }
 
-customElements.define('billing-to-label', BillingToLabel);
+customElements.define('bill-to-street', BillToStreet);

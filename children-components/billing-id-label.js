@@ -1,13 +1,7 @@
 import { StyledComponent } from '../base-components/styled-component.js';
 
 export class BillingIdLabel extends StyledComponent {
-  static getCustomAttributes() {
-    return ['value'];
-  }
-
   render() {
-    const value = this.getAttribute('value') ?? 'Billing ID';
-
     this.shadowRoot.innerHTML = `
       <style>
         .billing-id-label {
@@ -18,7 +12,7 @@ export class BillingIdLabel extends StyledComponent {
           text-align: ${this.textAlign};
         }
       </style>
-      <span class="billing-id-label">${value}</span>
+      <span>Billing ID</span>
     `;
   }
 }

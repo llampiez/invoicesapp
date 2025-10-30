@@ -1,6 +1,6 @@
 import { StyledComponent } from '../base-components/styled-component.js';
 
-export class BillingToTeam extends StyledComponent {
+export class BillToCompany extends StyledComponent {
   static getCustomAttributes() {
     return ['value'];
   }
@@ -27,4 +27,4 @@ export class BillingToTeam extends StyledComponent {
   }
 }
 
-customElements.define('billing-to-team', BillingToTeam);
+customElements.define('bill-to-company', BillToCompany);

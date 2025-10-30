@@ -1,12 +1,12 @@
 import { StyledComponent } from '../base-components/styled-component.js';
 
-export class BillingToEmail extends StyledComponent {
+export class BillToZip extends StyledComponent {
   static getCustomAttributes() {
-    return ['email'];
+    return ['value'];
   }
 
   render() {
-    const email = this.getAttribute('email') || 'Billing To Email';
+    const value = this.getAttribute('value') || '';
 
     this.shadowRoot.innerHTML = `
       <style>
@@ -22,9 +22,9 @@ export class BillingToEmail extends StyledComponent {
           color: ${this.color};
         }
       </style>
-      <span>${email}</span>
+      <span>${value}</span>
     `;
   }
 }
 
-customElements.define('billing-to-email', BillingToEmail);
+customElements.define('bill-to-zip', BillToZip);

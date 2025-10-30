@@ -1,12 +1,12 @@
 import { StyledComponent } from '../base-components/styled-component.js';
 
-export class BillingToName extends StyledComponent {
+export class BillToLabel extends StyledComponent {
   static getCustomAttributes() {
-    return ['name'];
+    return ['value'];
   }
 
   render() {
-    const name = this.getAttribute('name') || 'Billing To Name';
+    const value = this.getAttribute('value') || 'Bill to';
 
     this.shadowRoot.innerHTML = `
       <style>
@@ -22,9 +22,9 @@ export class BillingToName extends StyledComponent {
           color: ${this.color};
         }
       </style>
-      <span>${name}</span>
+      <span>${value}</span>
     `;
   }
 }
 
-customElements.define('billing-to-name', BillingToName);
+customElements.define('bill-to-label', BillToLabel);

@@ -1,12 +1,12 @@
 import { StyledComponent } from '../base-components/styled-component.js';
 
-export class BillingToStreet extends StyledComponent {
+export class BillToCountry extends StyledComponent {
   static getCustomAttributes() {
-    return ['street'];
+    return ['value'];
   }
 
   render() {
-    const street = this.getAttribute('street') || 'Billing To Street';
+    const value = this.getAttribute('value') || '';
 
     this.shadowRoot.innerHTML = `
       <style>
@@ -22,9 +22,9 @@ export class BillingToStreet extends StyledComponent {
           color: ${this.color};
         }
       </style>
-      <span>${street}</span>
+      <span>${value}</span>
     `;
   }
 }
 
-customElements.define('billing-to-street', BillingToStreet);
+customElements.define('bill-to-country', BillToCountry);

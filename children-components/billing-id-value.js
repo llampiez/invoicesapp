@@ -6,11 +6,11 @@ export class BillingIdValue extends StyledComponent {
   }
 
   render() {
-    const value = this.getAttribute('value') ?? 'Not provided';
+    const value = this.getAttribute('value') ?? '';
 
     this.shadowRoot.innerHTML = `
       <style>
-        .billing-id-value {
+        span {
           font-family: ${this.fontFamily};
           font-size: ${this.fontSize};
           font-weight: ${this.fontWeight};
@@ -18,7 +18,7 @@ export class BillingIdValue extends StyledComponent {
           text-align: ${this.textAlign};
         }
       </style>
-      <span class="billing-id-value">${value}</span>
+      <span>${value}</span>
     `;
   }
 }

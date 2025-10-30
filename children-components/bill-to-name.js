@@ -1,6 +1,6 @@
 import { StyledComponent } from '../base-components/styled-component.js';
 
-export class BillingToPhone extends StyledComponent {
+export class BillToName extends StyledComponent {
   static getCustomAttributes() {
     return ['value'];
   }
@@ -27,4 +27,4 @@ export class BillingToPhone extends StyledComponent {
   }
 }
 
-customElements.define('billing-to-phone', BillingToPhone);
+customElements.define('bill-to-name', BillToName);
