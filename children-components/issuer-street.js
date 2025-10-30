@@ -2,11 +2,11 @@ import { StyledComponent } from '../base-components/styled-component.js';
 
 export class IssuerStreet extends StyledComponent {
   static getCustomAttributes() {
-    return ['street'];
+    return ['value'];
   }
 
   render() {
-    const street = this.getAttribute('street') || 'Issuer Street';
+    const value = this.getAttribute('value') || '';
 
     this.shadowRoot.innerHTML = `
       <style>
@@ -22,7 +22,7 @@ export class IssuerStreet extends StyledComponent {
           color: ${this.color};
         }
       </style>
-      <span>${street}</span>
+      <span>${value}</span>
     `;
   }
 }

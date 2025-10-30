@@ -2,18 +2,18 @@ import { StyledComponent } from '../base-components/styled-component.js';
 
 export class DateValue extends StyledComponent {
   static getCustomAttributes() {
-    return ['value', 'format'];
+    return ['date-value', 'date-format'];
   }
 
   render() {
-    const value = this.getAttribute('value') ?? new Date();
-    const format = this.getAttribute('format') ?? 'MMMM D, YYYY';
+    const dateValue = this.getAttribute('date-value') ?? new Date();
+    const dateFormat = this.getAttribute('date-format') ?? 'MMMM D, YYYY';
 
-    const formattedDate = dayjs(value).format(format);
+    const formattedDate = dayjs(dateValue).format(dateFormat);
 
     this.shadowRoot.innerHTML = `
       <style>
-        .date-value {
+        span {
           font-family: ${this.fontFamily};
           font-size: ${this.fontSize};
           font-weight: ${this.fontWeight};
@@ -21,7 +21,7 @@ export class DateValue extends StyledComponent {
           text-align: ${this.textAlign};
         }
       </style>
-      <span class="date-value">${formattedDate}</span>
+      <span>${formattedDate}</span>
     `;
   }
 }

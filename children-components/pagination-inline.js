@@ -1,12 +1,12 @@
 import { StyledComponent } from '../base-components/styled-component.js';
 
-export class InvoicePagination extends StyledComponent {
+export class PaginationInline extends StyledComponent {
   static getCustomAttributes() {
-    return ['page', 'total-pages'];
+    return ['current-page', 'total-pages'];
   }
 
   render() {
-    const page = this.getAttribute('page') || '0';
+    const currentPage = this.getAttribute('current-page') || '0';
     const totalPages = this.getAttribute('total-pages') || '0';
 
     this.shadowRoot.innerHTML = `
@@ -23,9 +23,9 @@ export class InvoicePagination extends StyledComponent {
           color: ${this.color};
         }
       </style>
-      <span>${page} of ${totalPages}</span>
+      <span>${currentPage} of ${totalPages}</span>
     `;
   }
 }
 
-customElements.define('invoice-pagination', InvoicePagination);
+customElements.define('pagination-inline', PaginationInline);

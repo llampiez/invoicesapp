@@ -6,7 +6,7 @@ export class VATNumber extends StyledComponent {
   }
 
   render() {
-    const label = this.getAttribute('label') ?? 'VAT number:';
+    const label = this.getAttribute('label') ?? 'VAT number: ';
     const value = this.getAttribute('value') ?? '';
 
     this.shadowRoot.innerHTML = `
@@ -21,7 +21,7 @@ export class VATNumber extends StyledComponent {
           padding: ${this.padding};
         }
       </style>
-      <span>${label} ${value}</span>
+      <span>${label}${value}</span>
     `;
   }
 }

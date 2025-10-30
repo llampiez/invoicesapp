@@ -2,11 +2,11 @@ import { StyledComponent } from '../base-components/styled-component.js';
 
 export class IssuerCountry extends StyledComponent {
   static getCustomAttributes() {
-    return ['country'];
+    return ['value'];
   }
 
   render() {
-    const country = this.getAttribute('country') || 'Issuer Country';
+    const value = this.getAttribute('value') || '';
 
     this.shadowRoot.innerHTML = `
       <style>
@@ -22,7 +22,7 @@ export class IssuerCountry extends StyledComponent {
           color: ${this.color};
         }
       </style>
-      <span>${country}</span>
+      <span>${value}</span>
     `;
   }
 }

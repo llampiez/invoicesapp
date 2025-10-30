@@ -1,12 +1,11 @@
 import { StyledComponent } from '../base-components/styled-component';
 
-export class InvoiceNumber extends StyledComponent {
+export class InvoiceNumberInline extends StyledComponent {
   static getCustomAttributes() {
-    return ['label', 'value'];
+    return ['value'];
   }
 
   render() {
-    const label = this.getAttribute('label') ?? 'Invoice number:';
     const value = this.getAttribute('value') ?? '';
 
     this.shadowRoot.innerHTML = `
@@ -21,9 +20,9 @@ export class InvoiceNumber extends StyledComponent {
           padding: ${this.padding};
         }
       </style>
-      <span>${label} ${value}</span>
+      <span>Invoice number: ${value}</span>
     `;
   }
 }
 
-customElements.define('invoice-number', InvoiceNumber);
+customElements.define('invoice-number-inline', InvoiceNumberInline);

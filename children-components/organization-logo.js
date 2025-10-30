@@ -1,3 +1,5 @@
+//TODO Check this component.
+
 import { StyledComponent } from '../base-components/styled-component.js';
 
 export class OrganizationLogo extends StyledComponent {

@@ -9,11 +9,11 @@ export class SummaryForDate extends StyledComponent {
     const dateValue = this.getAttribute('date-value') ?? new Date();
     const dateFormat = this.getAttribute('date-format') ?? 'D MMM YYYY';
 
-    const dateFormatted = dayjs(dateValue).format(dateFormat);
+    const formattedDate = dayjs(dateValue).format(dateFormat);
 
     this.shadowRoot.innerHTML = `
       <style>
-        .summary-for-date {
+        span {
           font-family: ${this.fontFamily};
           font-size: ${this.fontSize};
           font-weight: ${this.fontWeight};
@@ -21,7 +21,7 @@ export class SummaryForDate extends StyledComponent {
           text-align: ${this.textAlign};
         }
       </style>
-      <span class="summary-for-date">Summary for ${dateFormatted}</span>
+      <span>Summary for ${formattedDate}</span>
     `;
   }
 }

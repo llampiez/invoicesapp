@@ -1,13 +1,7 @@
 import { StyledComponent } from '../base-components/styled-component.js';
 
 export class DetailsLabel extends StyledComponent {
-  static getCustomAttributes() {
-    return ['value'];
-  }
-
   render() {
-    const value = this.getAttribute('value') || 'Details';
-
     this.shadowRoot.innerHTML = `
       <style>
         span {
@@ -22,7 +16,7 @@ export class DetailsLabel extends StyledComponent {
           color: ${this.color};
         }
       </style>
-      <span>${value}</span>
+      <span>Details</span>
     `;
   }
 }

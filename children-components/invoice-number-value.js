@@ -6,11 +6,11 @@ export class InvoiceNumberValue extends StyledComponent {
   }
 
   render() {
-    const value = this.getAttribute('value') ?? 'Not provided';
+    const value = this.getAttribute('value') ?? '';
 
     this.shadowRoot.innerHTML = `
       <style>
-        .invoice-number-value {
+        span {
           font-family: ${this.fontFamily};
           font-size: ${this.fontSize};
           font-weight: ${this.fontWeight};
@@ -18,7 +18,7 @@ export class InvoiceNumberValue extends StyledComponent {
           text-align: ${this.textAlign};
         }
       </style>
-      <span class="invoice-number-value">${value}</span>
+      <span>${value}</span>
     `;
   }
 }

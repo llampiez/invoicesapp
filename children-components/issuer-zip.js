@@ -2,11 +2,11 @@ import { StyledComponent } from '../base-components/styled-component.js';
 
 export class IssuerZip extends StyledComponent {
   static getCustomAttributes() {
-    return ['zip'];
+    return ['value'];
   }
 
   render() {
-    const zip = this.getAttribute('zip') || 'Issuer Zip';
+    const value = this.getAttribute('value') || '';
 
     this.shadowRoot.innerHTML = `
       <style>
@@ -22,7 +22,7 @@ export class IssuerZip extends StyledComponent {
           color: ${this.color};
         }
       </style>
-      <span>${zip}</span>
+      <span>${value}</span>
     `;
   }
 }

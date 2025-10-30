@@ -1,16 +1,10 @@
 import { StyledComponent } from '../base-components/styled-component.js';
 
 export class InvoiceDateLabel extends StyledComponent {
-  static getCustomAttributes() {
-    return ['label'];
-  }
-
   render() {
-    const label = this.getAttribute('label') ?? 'Invoice date';
-
     this.shadowRoot.innerHTML = `
       <style>
-        .invoice-date-label {
+        span {
           font-family: ${this.fontFamily};
           font-size: ${this.fontSize};
           font-weight: ${this.fontWeight};
@@ -18,7 +12,7 @@ export class InvoiceDateLabel extends StyledComponent {
           text-align: ${this.textAlign};
         }
       </style>
-      <span class="invoice-date-label">${label}</span>
+      <span>Invoice date</span>
     `;
   }
 }
