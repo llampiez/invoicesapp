@@ -1,12 +1,12 @@
 import { StyledComponent } from '../base-components/styled-component.js';
 
-export class CustomerEmail extends StyledComponent {
+export class BillingToEmail extends StyledComponent {
   static getCustomAttributes() {
     return ['email'];
   }
 
   render() {
-    const email = this.getAttribute('email') || 'Customer Email';
+    const email = this.getAttribute('email') || 'Billing To Email';
 
     this.shadowRoot.innerHTML = `
       <style>
@@ -27,4 +27,4 @@ export class CustomerEmail extends StyledComponent {
   }
 }
 
-customElements.define('customer-email', CustomerEmail);
+customElements.define('billing-to-email', BillingToEmail);

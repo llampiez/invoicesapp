@@ -1,4 +1,4 @@
-import './children-components/receipt-title.js';
+import './children-components/invoice-title.js';
 import './children-components/vat-number-label.js';
 import './children-components/vat-number-value.js';
 import './parent-components/vat-number.js';

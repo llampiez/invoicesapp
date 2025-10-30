@@ -1,12 +1,12 @@
 import { StyledComponent } from '../base-components/styled-component.js';
 
-export class CustomerCity extends StyledComponent {
+export class IssuerBuilding extends StyledComponent {
   static getCustomAttributes() {
-    return ['city'];
+    return ['name'];
   }
 
   render() {
-    const city = this.getAttribute('city') || 'Customer City';
+    const name = this.getAttribute('name') || '';
 
     this.shadowRoot.innerHTML = `
       <style>
@@ -22,9 +22,9 @@ export class CustomerCity extends StyledComponent {
           color: ${this.color};
         }
       </style>
-      <span>${city}</span>
+      <span>${name}</span>
     `;
   }
 }
 
-customElements.define('customer-city', CustomerCity);
+customElements.define('issuer-building', IssuerBuilding);
