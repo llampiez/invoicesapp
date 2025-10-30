@@ -1,6 +1,6 @@
 import { StyledComponent } from '../base-components/styled-component.js';
 
-export class SummaryDate extends StyledComponent {
+export class SummaryForDate extends StyledComponent {
   static getCustomAttributes() {
     return ['date-value', 'date-format'];
   }
@@ -13,7 +13,7 @@ export class SummaryDate extends StyledComponent {
 
     this.shadowRoot.innerHTML = `
       <style>
-        .summary-date {
+        .summary-for-date {
           font-family: ${this.fontFamily};
           font-size: ${this.fontSize};
           font-weight: ${this.fontWeight};
@@ -21,9 +21,9 @@ export class SummaryDate extends StyledComponent {
           text-align: ${this.textAlign};
         }
       </style>
-      <span class="summary-date">Summary for ${dateFormatted}</span>
+      <span class="summary-for-date">Summary for ${dateFormatted}</span>
     `;
   }
 }
 
-customElements.define('summary-date', SummaryDate);
+customElements.define('summary-for-date', SummaryForDate);

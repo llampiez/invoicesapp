@@ -4,6 +4,7 @@ export class TableHeadAmount extends StyledComponent {
   static getCustomAttributes() {
     return ['label'];
   }
+
   render() {
     const label = this.getAttribute('label') || 'Amount';
 

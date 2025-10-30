@@ -1,16 +1,16 @@
 import { StyledComponent } from '../base-components/styled-component.js';
 
-export class AmountPaidLabel extends StyledComponent {
+export class Summary extends StyledComponent {
   static getCustomAttributes() {
     return ['label'];
   }
 
   render() {
-    const label = this.getAttribute('label') ?? 'Amount paid';
+    const label = this.getAttribute('label') ?? 'Summary';
 
     this.shadowRoot.innerHTML = `
       <style>
-        .amount-paid-label {
+        .summary {
           font-family: ${this.fontFamily};
           font-size: ${this.fontSize};
           font-weight: ${this.fontWeight};
@@ -18,9 +18,9 @@ export class AmountPaidLabel extends StyledComponent {
           text-align: ${this.textAlign};
         }
       </style>
-      <span class="amount-paid-label">${label}</span>
+      <span class="summary">${label}</span>
     `;
   }
 }
 
-customElements.define('amount-paid-label', AmountPaidLabel);
+customElements.define('summary', Summary);

@@ -1,6 +1,6 @@
 import { StyledComponent } from '../base-components/styled-component';
 
-export class VATNumberFull extends StyledComponent {
+export class VATNumber extends StyledComponent {
   static getCustomAttributes() {
     return ['label', 'value'];
   }
@@ -26,4 +26,4 @@ export class VATNumberFull extends StyledComponent {
   }
 }
 
-customElements.define('vat-number-full', VATNumberFull);
+customElements.define('vat-number', VATNumber);
