@@ -1,16 +1,16 @@
 import { StyledComponent } from '../base-components/styled-component.js';
 
-export class InvoiceTitle extends StyledComponent {
+export class DetailsSubtitle extends StyledComponent {
   static getCustomAttributes() {
-    return ['value'];
+    return ['label'];
   }
 
   render() {
-    const value = this.getAttribute('value') ?? 'Invoice';
+    const label = this.getAttribute('label') ?? 'Details';
 
     this.shadowRoot.innerHTML = `
       <style>
-        h1 {
+        h2 {
           font-size: ${this.fontSize};
           font-weight: ${this.fontWeight};
           color: ${this.color};
@@ -20,9 +20,9 @@ export class InvoiceTitle extends StyledComponent {
           font-family: ${this.fontFamily};
         }
       </style>
-      <h1>${value}</h1>
+      <h2>${label}</h2>
     `;
   }
 }
 
-customElements.define('invoice-title', InvoiceTitle);
+customElements.define('details-subtitle', DetailsSubtitle);
