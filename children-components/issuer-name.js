@@ -2,11 +2,11 @@ import { StyledComponent } from '../base-components/styled-component.js';
 
 export class IssuerName extends StyledComponent {
   static getCustomAttributes() {
-    return ['value'];
+    return ['name'];
   }
 
   render() {
-    const value = this.getAttribute('value') || '';
+    const name = this.getAttribute('name') || '';
 
     this.shadowRoot.innerHTML = `
       <style>
@@ -22,7 +22,7 @@ export class IssuerName extends StyledComponent {
           color: ${this.color};
         }
       </style>
-      <span>${value}</span>
+      <span>${name}</span>
     `;
   }
 }

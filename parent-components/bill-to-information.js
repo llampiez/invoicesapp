@@ -1,16 +1,7 @@
-import { StyledComponent } from '../base-components/styled-component.js';
+import { LocationComponent } from '../base-components/location-component.js';
 
-export class BillToInformation extends StyledComponent {
-  static getCustomAttributes() {
-    return ['zip', 'country', 'city', 'street'];
-  }
-
+export class BillToInformation extends LocationComponent {
   render() {
-    const city = this.getAttribute('city') ?? '';
-    const zip = this.getAttribute('zip') ?? '';
-    const country = this.getAttribute('country') ?? '';
-    const street = this.getAttribute('street') ?? '';
-
     this.shadowRoot.innerHTML = `
       <style>
         .container {
@@ -32,9 +23,10 @@ export class BillToInformation extends StyledComponent {
         <span>Bill to</span>
         <slot name="person-name"></slot>
         <slot name="company-name"></slot>
-        ${country ? `<span>${country}</span>` : ''}
-        ${city ? `<span>${city}</span>` : ''}
-        ${street ? `<span>${street}</span>` : ''}
+        ${this.street ? `<span>${this.street}</span>` : ''}
+        ${this.city ? `<span>${this.city}</span>` : ''}
+        ${this.address ? `<span>${this.address}</span>` : ''}
+        ${this.country ? `<span>${this.country}</span>` : ''}
         <slot></slot>
       </div>
     `;

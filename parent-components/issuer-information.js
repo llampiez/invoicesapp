@@ -1,29 +1,12 @@
-import { StyledComponent } from '../base-components/styled-component.js';
+import { LocationComponent } from '../base-components/location-component.js';
 
-export class IssuerInformation extends StyledComponent {
-  static getCustomAttributes() {
-    return ['building', 'street', 'zip', 'country', 'pmb'];
-  }
-
+export class IssuerInformation extends LocationComponent {
   render() {
-    const building = this.getAttribute('building') ?? '';
-    const street = this.getAttribute('street') ?? '';
-    const country = this.getAttribute('country') ?? '';
-    const pmb = this.getAttribute('pmb') ?? '';
-
-    const zip = this.getAttribute('zip') ?? '';
-    const state = this.getAttribute('state') ?? '';
-    const city = this.getAttribute('city') ?? '';
-
-    const address = `${state ? `${state}, ` : ''}${
-      city ? `${city}, ` : ''
-    }${zip}`;
-
-    console.log(address);
-
     this.shadowRoot.innerHTML = `
       <style>
         .container {
+          display: ${this.display};
+          flex-direction: ${this.flexDirection};
           font-family: ${this.fontFamily};
           font-size: ${this.fontSize};
           font-weight: ${this.fontWeight};
@@ -39,12 +22,12 @@ export class IssuerInformation extends StyledComponent {
         
       </style>
       <div class="container">
-        <slot name="issuer-name"></slot>
-        ${building ? `<span>${building}</span>` : ''}
-        ${street ? `<span>${street}</span>` : ''}
-        ${pmb ? `<span>${pmb}</span>` : ''}
-        ${address ? `<span>${address}</span>` : ''}
-        ${country ? `<span>${country}</span>` : ''}
+        <slot name="name"></slot>
+        ${this.building ? `<span>${this.building}</span>` : ''}
+        ${this.street ? `<span>${this.street}</span>` : ''}
+        ${this.pmb ? `<span>PMB ${this.pmb}</span>` : ''}
+        ${this.address ? `<span>${this.address}</span>` : ''}
+        ${this.country ? `<span>${this.country}</span>` : ''}
         <slot></slot>
       </div>
     `;

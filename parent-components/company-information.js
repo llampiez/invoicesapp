@@ -1,16 +1,7 @@
-import { StyledComponent } from '../base-components/styled-component.js';
+import { LocationComponent } from '../base-components/location-component.js';
 
-export class IssuerInformation extends StyledComponent {
-  static getCustomAttributes() {
-    return ['zip', 'country', 'address', 'region'];
-  }
-
+export class CompanyInformation extends LocationComponent {
   render() {
-    const zip = this.getAttribute('zip') ?? '';
-    const country = this.getAttribute('country') ?? '';
-    const address = this.getAttribute('address') ?? '';
-    const region = this.getAttribute('region') ?? '';
-
     this.shadowRoot.innerHTML = `
       <style>
         .container {
@@ -30,14 +21,14 @@ export class IssuerInformation extends StyledComponent {
       </style>
       <div class="container">
         <slot name="company-name"></slot>
-        ${zip ? `<span>${zip}</span>` : ''}
-        ${country ? `<span>${country}</span>` : ''}
-        ${region ? `<span>${region}</span>` : ''}
-        ${address ? `<span>${address}</span>` : ''}
+        ${this.zip ? `<span>${this.zip}</span>` : ''}
+        ${this.country ? `<span>${this.country}</span>` : ''}
+        ${this.region ? `<span>${this.region}</span>` : ''}
+        ${this.address ? `<span>${this.address}</span>` : ''}
         <slot></slot>
       </div>
     `;
   }
 }
 
-customElements.define('issuer-information', IssuerInformation);
+customElements.define('company-information', CompanyInformation);

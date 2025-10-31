@@ -1,12 +1,12 @@
-import { StyledComponent } from '../base-components/styled-component';
+import { StyledComponent } from '../base-components/styled-component.js';
 
-export class VATNumberInline extends StyledComponent {
+export class VATNumber extends StyledComponent {
   static getCustomAttributes() {
     return ['label', 'value'];
   }
 
   render() {
-    const label = this.getAttribute('label') ?? 'VAT number: ';
+    const label = this.getAttribute('label') ?? 'VAT number:';
     const value = this.getAttribute('value') ?? '';
 
     this.shadowRoot.innerHTML = `
@@ -21,9 +21,9 @@ export class VATNumberInline extends StyledComponent {
           padding: ${this.padding};
         }
       </style>
-      <span>${label}${value}</span>
+      <span>${label} ${value}</span>
     `;
   }
 }
 
-customElements.define('vat-number-inline', VATNumberInline);
+customElements.define('vat-number', VATNumber);
