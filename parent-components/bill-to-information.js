@@ -29,10 +29,9 @@ export class BillToInformation extends StyledComponent {
         
       </style>
       <div class="container">
-        <span class="label">Bill to</span>
+        <span>Bill to</span>
         <slot name="person-name"></slot>
         <slot name="company-name"></slot>
-        ${zip ? `<span>${zip}</span>` : ''}
         ${country ? `<span>${country}</span>` : ''}
         ${city ? `<span>${city}</span>` : ''}
         ${street ? `<span>${street}</span>` : ''}
