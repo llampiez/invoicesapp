@@ -1,6 +1,6 @@
 import { StyledComponent } from '../base-components/styled-component.js';
 
-export class CompanyAddress extends StyledComponent {
+export class PhoneNumber extends StyledComponent {
   static getCustomAttributes() {
     return ['value'];
   }
@@ -27,4 +27,4 @@ export class CompanyAddress extends StyledComponent {
   }
 }
 
-customElements.define('company-address', CompanyAddress);
+customElements.define('phone-number', PhoneNumber);

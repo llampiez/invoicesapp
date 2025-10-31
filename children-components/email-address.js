@@ -1,12 +1,12 @@
 import { StyledComponent } from '../base-components/styled-component.js';
 
-export class IssuerEmail extends StyledComponent {
+export class EmailAddress extends StyledComponent {
   static getCustomAttributes() {
-    return ['email'];
+    return ['value'];
   }
 
   render() {
-    const email = this.getAttribute('email') || 'Issuer Email';
+    const value = this.getAttribute('value') || '';
 
     this.shadowRoot.innerHTML = `
       <style>
@@ -22,9 +22,9 @@ export class IssuerEmail extends StyledComponent {
           color: ${this.color};
         }
       </style>
-      <span>${email}</span>
+      <span>${value}</span>
     `;
   }
 }
 
-customElements.define('issuer-email', IssuerEmail);
+customElements.define('email-address', EmailAddress);
