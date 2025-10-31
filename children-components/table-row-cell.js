@@ -1,10 +1,16 @@
 import { StyledComponent } from '../base-components/styled-component.js';
 
-export class TableHeadTotal extends StyledComponent {
+export class TableRowCell extends StyledComponent {
+  static getCustomAttributes() {
+    return ['content'];
+  }
+
   render() {
+    const content = this.getAttribute('content') ?? '';
+
     this.shadowRoot.innerHTML = `
       <style>
-        .th-total {
+        div {
           font-family: ${this.fontFamily};
           font-size: ${this.fontSize};
           font-weight: ${this.fontWeight};
@@ -18,9 +24,9 @@ export class TableHeadTotal extends StyledComponent {
           line-height: ${this.lineHeight};
         }
       </style>
-      <div class="th-total">Total</div>
+      <div>${content}</div>
     `;
   }
 }
 
-customElements.define('th-total', TableHeadTotal);
+customElements.define('tr-cell', TableRowCell);

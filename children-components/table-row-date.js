@@ -9,11 +9,11 @@ export class TableRowDate extends StyledComponent {
     const dateValue = this.getAttribute('date-value') ?? new Date();
     const dateFormat = this.getAttribute('date-format') ?? 'MMMM D, YYYY';
 
-    const formattedDate = dayjs(dateValue).format(dateFormat);
+    const content = dayjs(dateValue).format(dateFormat);
 
     this.shadowRoot.innerHTML = `
       <style>
-        .tr-date {
+        div {
           font-family: ${this.fontFamily};
           font-size: ${this.fontSize};
           font-weight: ${this.fontWeight};
@@ -27,7 +27,7 @@ export class TableRowDate extends StyledComponent {
           line-height: ${this.lineHeight};
         }
       </style>
-      <div class="tr-date">${formattedDate}</div>
+      <div>${content}</div>
     `;
   }
 }

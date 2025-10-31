@@ -10,13 +10,14 @@ export class TableRowAmount extends StyledComponent {
     const currency = this.getAttribute('currency') ?? '$';
     const currencyPosition = this.getAttribute('currency-position') ?? 'after';
 
-    const content = currencyPosition === 'before'
-      ? `${currency}${amount}`
-      : `${amount}${currency}`;
+    const content =
+      currencyPosition === 'before'
+        ? `${currency}${amount}`
+        : `${amount}${currency}`;
 
     this.shadowRoot.innerHTML = `
       <style>
-        .tr-amount {
+        div {
           font-family: ${this.fontFamily};
           font-size: ${this.fontSize};
           font-weight: ${this.fontWeight};
@@ -30,7 +31,7 @@ export class TableRowAmount extends StyledComponent {
           line-height: ${this.lineHeight};
         }
       </style>
-      <div class="tr-amount">${content}</div>
+      <div>${content}</div>
     `;
   }
 }

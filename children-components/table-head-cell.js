@@ -1,16 +1,16 @@
 import { StyledComponent } from '../base-components/styled-component.js';
 
-export class TableRowQuantity extends StyledComponent {
+export class TableHeadCell extends StyledComponent {
   static getCustomAttributes() {
-    return ['quantity'];
+    return ['content'];
   }
 
   render() {
-    const quantity = this.getAttribute('quantity') ?? '';
+    const content = this.getAttribute('content') || '';
 
     this.shadowRoot.innerHTML = `
       <style>
-        .tr-quantity {
+        div {
           font-family: ${this.fontFamily};
           font-size: ${this.fontSize};
           font-weight: ${this.fontWeight};
@@ -24,9 +24,9 @@ export class TableRowQuantity extends StyledComponent {
           line-height: ${this.lineHeight};
         }
       </style>
-      <div class="tr-quantity">${quantity}</div>
+      <div>${content}</div>
     `;
   }
 }
 
-customElements.define('tr-quantity', TableRowQuantity);
+customElements.define('th-cell', TableHeadCell);
