@@ -20,6 +20,6 @@ export class InvoiceElectronicGenerationNote extends StyledComponent {
 }
 
 customElements.define(
-  'invoice-electronic-generatio-note',
+  'invoice-electronic-generation-note',
   InvoiceElectronicGenerationNote,
 );

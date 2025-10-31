@@ -1,4 +1,4 @@
-import { StyledComponent } from '../base-components/styled-component';
+import { StyledComponent } from '../base-components/styled-component.js';
 
 export class AmountNowDueBlock extends StyledComponent {
   static getCustomAttributes() {

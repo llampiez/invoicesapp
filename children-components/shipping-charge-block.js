@@ -1,4 +1,4 @@
-import { StyledComponent } from '../base-components/styled-component';
+import { StyledComponent } from '../base-components/styled-component.js';
 
 export class ShippingCharge extends StyledComponent {
   static getCustomAttributes() {
@@ -50,4 +50,4 @@ export class ShippingCharge extends StyledComponent {
   }
 }
 
-customElements.define('discount-block', ShippingCharge);
+customElements.define('shipping-charge-block', ShippingCharge);

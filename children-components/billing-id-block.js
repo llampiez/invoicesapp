@@ -38,4 +38,4 @@ export class InvoiceBillingIdBlock extends StyledComponent {
   }
 }
 
-customElements.define('invoice-billing-id-block', InvoiceBillingIdBlock);
+customElements.define('billing-id-block', InvoiceBillingIdBlock);

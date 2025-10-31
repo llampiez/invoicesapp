@@ -1,4 +1,4 @@
-import { StyledComponent } from '../base-components/styled-component';
+import { StyledComponent } from '../base-components/styled-component.js';
 
 export class InvoiceNumberBlock extends StyledComponent {
   static getCustomAttributes() {
@@ -38,4 +38,4 @@ export class InvoiceNumberBlock extends StyledComponent {
   }
 }
 
-customElements.define('invoice-number-inline', InvoiceNumberBlock);
+customElements.define('invoice-number-block', InvoiceNumberBlock);

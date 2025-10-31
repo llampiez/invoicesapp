@@ -30,4 +30,4 @@ export class TotalPaidInline extends StyledComponent {
   }
 }
 
-customElements.define('date-paid-inline', TotalPaidInline);
+customElements.define('total-paid-inline', TotalPaidInline);
